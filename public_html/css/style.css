@@ -2,12 +2,19 @@
 /* --------------------------
     Common Styles
 -------------------------- */
+:root {
+    --main-color: #dc2626;
+    --footer-text-color: #9ca3af;
+}
+
 body {
-    font-family: "Roboto",
-                 "Noto Sans JP",
-                 "Arial", 
-                 "Hiragino Kaku Gothic ProN",
-                 "Hiragino Sans", Meiryo, sans-serif;
+    font-family: "ui-sans-serif",
+                 "system-ui",
+                 "sans-serif",
+                 "Apple Color Emoji",
+                 "Segoe UI Emoji",
+                 "Segoe UI Symbol",
+                 "Noto Color Emoji";
     font-size: 16px;
 }
 
@@ -25,4 +32,84 @@ body {
     max-width: 96rem;
     margin: 0 auto;
     padding: 0 30px;
-}
+}
+
+/* --------------------------
+    Footer Styles
+-------------------------- */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-list {
+    display: grid;
+    column-gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.footer-list__item {
+    padding: 30px 10px;
+    text-align: left;
+}
+
+.footer-list__title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-list__text {
+    color: var(--footer-text-color);
+}
+
+/* タグエリアのスタイル */
+.footer-list__tags-item {
+    padding-bottom: 10px;
+}
+
+.footer-list__tags-item:last-child {
+    padding-bottom: 0;
+}
+
+.footer-list__tags-link {
+    color: var(--footer-text-color);
+}
+
+.footer-list__tags-link:hover {
+    color: #ffffff;
+}
+
+.footer-list__tags-link:before {
+    content: "#";
+}
+
+/* フォローエリアのスタイル */
+.footer-list__follow-item {
+    padding-bottom: 10px;
+}
+
+.footer-list__follow-item:last-child {
+    padding-bottom: 0;
+}
+
+.footer-list__follow-link {
+    color: var(--footer-text-color);
+}
+
+.footer-list__follow-link:hover {
+    color: #ffffff;
+}
+
+/* コピーライト部分のスタイル */
+.footer__copylight {
+    margin-top: 10px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: var(--footer-text-color);
+    border-color: #444;
+    border-top-width: 1px;
+    border-top-style: solid;
+}
