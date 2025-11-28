@@ -71,7 +71,7 @@ img {
 }
 
 .c-tag {
-    display: inline-block;
+    display: block;
     max-width: 300px;
     padding: 0.3rem 0.6rem;
     letter-spacing: 0.05em;
