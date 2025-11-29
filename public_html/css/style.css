@@ -3,8 +3,11 @@
     Common Styles
 -------------------------- */
 :root {
-    --main-color: #dc2626;
-    --footer-text-color: #9ca3af;
+    --main-color: oklch(.577 .245 27.325);
+    --footer-color: oklch(.21 .034 264.665);
+    --footer-text-color: oklch(.707 .022 261.325);
+    --color-black: #000;
+    --color-white: #fff;
     --bg-gradient: linear-gradient(
         135deg,
         #ff0000,
@@ -28,7 +31,6 @@ body {
 img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     display: block;
 }
 
@@ -59,7 +61,7 @@ img {
     text-align: center;
     margin: 0 auto;
     padding: 15px;
-    background: #fff;
+    background: var(--color-white);
     border-radius: 10px;
     border: #ddd;
     border-style: solid;
@@ -68,6 +70,31 @@ img {
 
 .btn:hover {
     opacity: 0.7;
+}
+
+.icon {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.excellent-score {
+    /* 90点以上 */
+    background-color: oklch(.617 0.257 29.223);
+}
+
+.good-score {
+    /* 80点以上 */
+    background-color: oklch(.627 .194 149.214);
+}
+
+.medium-score {
+    /* 70点以上 */
+    background-color: oklch(.546 .245 262.881);
+}
+
+.poor-score {
+    /* 70点未満 */
+    background-color: oklch(.446 .03 256.802);
 }
 
 .c-tag {
@@ -96,11 +123,14 @@ img {
 
 .mv__heading {
     margin-bottom: 25px;
-    color: #fff;
+    color: var(--color-white);
     letter-spacing: 0.05em;
 }
 
 .mv__title {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -127,7 +157,7 @@ img {
     border-radius: 0.75rem;
     overflow: hidden;
     box-shadow: 0 2px 12px #bbb;
-    background: #fff;
+    background: var(--color-white);
     transition: all 0.3s;
 }
 
@@ -148,7 +178,31 @@ img {
 }
 
 .blog-grid__img {
-    height: 260px;
+    position: relative;
+    height: 300px;
+}
+
+.card-img {
+    object-fit: cover;
+}
+
+.star {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 100;
+}
+
+.blog-grid__label {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    display: flex;
+    padding:8px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--color-white);
+    align-items: center;
 }
 
 .blog-grid__profile {
@@ -161,8 +215,6 @@ img {
 .blog-grid__icon {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
 }
 
 .blog-grid__date {
@@ -197,8 +249,8 @@ img {
     Footer Styles
 -------------------------- */
 .footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--footer-color);
+    color: var(--color-white);
     padding: 20px 0;
     text-align: center;
 }
@@ -238,7 +290,7 @@ img {
 }
 
 .footer-list__tags-link:hover {
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 .footer-list__tags-link:before {
@@ -259,7 +311,7 @@ img {
 }
 
 .footer-list__follow-link:hover {
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 /* コピーライト部分のスタイル */
