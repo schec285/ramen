@@ -14,3 +14,4 @@
 - [Google Fonts](https://fonts.google.com/icons)
 - [リセットCSS](https://nicolas-cusan.github.io/destyle.css/)
 - [GitHub markdownCSS-light](https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown-light.css)
+- GoogleMap(Geocoding API / Maps Embed API(Place))
