@@ -11,10 +11,6 @@
 
 ## 使用技術/ツール
 
-### HTML
-
 - [Google Fonts](https://fonts.google.com/icons)
-
-### CSS
-
-- BEM記法
+- [リセットCSS](https://nicolas-cusan.github.io/destyle.css/)
+- [GitHub markdownCSS-light](https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown-light.css)
