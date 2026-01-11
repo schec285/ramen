@@ -8,6 +8,28 @@
     --footer-text-color: oklch(.707 .022 261.325);
     --color-black: #000;
     --color-white: #fff;
+    --color-bg: oklch(.988 0.001 271.152);
+    --color-perfect-score : linear-gradient(
+        45deg,
+        oklch(0.75 0.25 0),
+        oklch(0.75 0.25 30),
+        oklch(0.75 0.25 60),
+        oklch(0.75 0.25 90),
+        oklch(0.75 0.25 120),
+        oklch(0.75 0.25 150),
+        oklch(0.75 0.25 180),
+        oklch(0.75 0.25 210),
+        oklch(0.75 0.25 240),
+        oklch(0.75 0.25 270),
+        oklch(0.75 0.25 300),
+        oklch(0.75 0.25 330),
+        oklch(0.75 0.25 360)
+    );
+    --color-excellent-score: oklch(.617 0.257 29.223);
+    --color-good-score: oklch(.546 .245 262.881);
+    --color-medium-score: oklch(.627 .194 149.214);
+    --color-fair-score: oklch(74.419% 0.18112 56.449);
+    --color-poor-score: oklch(.446 .03 256.802);
     --bg-gradient: linear-gradient(
         135deg,
         #ff0000,
@@ -15,6 +37,12 @@
         #ff5500,
         #ff7700
     );
+
+    /* 入力フォームの標準デザイン */
+    --input-background-color: #f3f3f5;
+    --input-border-radius: 7px;
+    --input-transition: border-color .2s ease, box-shadow .2s ease;
+    --input-box-shadow: 0 0 8px #777;
 }
 
 @keyframes pop {
@@ -32,13 +60,39 @@ body {
                  "Segoe UI Symbol",
                  "Noto Color Emoji";
     font-size: 16px;
-    background-color: oklch(.988 0.001 271.152);
+    background-color: var(--color-bg);
 }
 
 img {
     width: 100%;
     height: 100%;
     display: block;
+}
+
+input[type="text"],
+textarea,
+select {
+    outline-style: none;
+    background-color: var(--input-background-color);
+    border-radius: var(--input-border-radius);
+    transition: var(--input-transition);
+    padding: 10px;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    box-shadow: var(--input-box-shadow);
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="range"] {
+    accent-color: var(--main-color);
+    --webkit-appearance: auto;
+    appearance: auto;
 }
 
 /* --------------------------
@@ -78,11 +132,6 @@ img {
 }
 
 .material-symbols-outlined {
-    transition:
-        font-variation-settings 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
-    line-height: 1;
     vertical-align: middle;
 }
 
@@ -90,30 +139,78 @@ img {
     display: flex;
     padding:8px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: bold;
     color: var(--color-white);
     align-items: center;
+    gap: 4px;
 }
 
-.excellent-score {
+.score-label > .star {
+    font-variation-settings:
+        'FILL' 1;
+    font-size: 1rem;
+}
+
+.score--perfect-bg {
+    background: var(--color-perfect-score);
+}
+
+.score--excellent-bg {
     /* 90点以上 */
-    background-color: oklch(.617 0.257 29.223);
+    background-color: var(--color-excellent-score);
 }
 
-.good-score {
+.score--good-bg {
     /* 80点以上 */
-    background-color: oklch(.627 .194 149.214);
+    background-color: var(--color-good-score);
 }
 
-.medium-score {
+.score--medium-bg {
     /* 70点以上 */
-    background-color: oklch(.546 .245 262.881);
+    background-color: var(--color-medium-score);
 }
 
-.poor-score {
-    /* 70点未満 */
-    background-color: oklch(.446 .03 256.802);
+.score--fair-bg {
+    /* 50〜69点 */
+    background-color: var(--color-fair-score);
+}
+
+.score--poor-bg {
+    /* 50点未満 */
+    background-color: var(--color-poor-score);
+}
+
+.score--perfect-text {
+    background: var(--color-perfect-score);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.score--excellent-text {
+    /* 90点以上 */
+    color: var(--color-excellent-score);
+}
+
+.score--good-text {
+    /* 80点以上 */
+    color: var(--color-good-score);
+}
+
+.score--medium-text {
+    /* 70点以上 */
+    color: var(--color-medium-score);
+}
+
+.score--fair-text {
+    /* 50〜69点 */
+    color: var(--color-fair-score);
+}
+
+.score--poor-text {
+    /* 50点未満 */
+    color: var(--color-poor-score);
 }
 
 .tag-list {
@@ -129,7 +226,7 @@ img {
     padding: 0.3rem 0.6rem;
     letter-spacing: 0.05em;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 0.75rem;
     border-style: solid;
     border-width: 1px;
     border-radius: 10px;
@@ -148,24 +245,35 @@ img {
     align-items: center;
     gap: 5px;
     color: #555;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: bold;
 }
 
 .comment-textarea {
-    background-color: #f3f3f5;
     width: 100%;
-    padding: 10px;
     margin-bottom: 10px;
-    resize: none;
-    outline-style: none;
-    padding: 10px;
-    border-radius: 7px;
-    transition: border-color .2s ease, box-shadow .2s ease;
 }
 
-.comment-textarea:focus {
-    box-shadow: 0 0 8px #777;
+.is-dragover {
+    opacity: 0.7;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.required {
+    color: red;
+    font-weight: bold;
+    margin-left: 3px;
 }
 
 /* --------------------------
@@ -186,7 +294,7 @@ img {
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -250,12 +358,6 @@ img {
     object-fit: cover;
 }
 
-.star {
-    font-variation-settings:
-        'FILL' 1,
-        'wght' 100;
-}
-
 .blog-grid__score-label {
     position: absolute;
     top: 20px;
@@ -280,7 +382,7 @@ img {
     padding-left: 7px;
     align-items: center;
     gap: 0.5rem;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #888;
 }
 
@@ -371,7 +473,7 @@ img {
 
 .blog-detail__zoom-icon .material-symbols-outlined {
     color: white;
-    font-size: 60px;
+    font-size: 3.75rem;
     z-index: 10;
     transition: opacity .25s ease, transform .25s ease;
     opacity: 0;
@@ -403,7 +505,7 @@ img {
     align-items: center;
     gap: 0.5rem;
     color: #666;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .blog-detail__user-name {
@@ -417,28 +519,31 @@ img {
     gap: 13px;
 }
 
-.blog-detail__bookmark, .blog-detail__favorite {
+.blog-detail__bookmark,
+.blog-detail__favorite {
     display: inline-flex;
     align-items: center;
     gap: 3px;
 }
 
-.blog-detail__favorite-btn[data-state="true"] .material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 1;
-        color: oklch(.617 0.257 29.223);
+.blog-detail__favorite-btn[data-state="true"] > .material-symbols-outlined {
     animation: pop 0.25s ease;
+    color: oklch(.617 0.257 29.223);
 }
 
-.blog-detail__bookmark-btn[data-state="true"] .material-symbols-outlined {
+.blog-detail__bookmark-btn[data-state="true"] > .material-symbols-outlined {
+    transition:
+        font-variation-settings 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+    color: oklch(.546 .245 262.881);
+    transform: scale(1.15);
+}
+
+.blog-detail__bookmark-btn[data-state="true"] > .material-symbols-outlined,
+.blog-detail__favorite-btn[data-state="true"] > .material-symbols-outlined {
     font-variation-settings:
         'FILL' 1;
-        color: oklch(.546 .245 262.881);
-}
-
-.blog-detail__bookmark-btn[data-state="true"] .material-symbols-outlined,
-.blog-detail__favorite-btn[data-state="true"] .material-symbols-outlined {
-    transform: scale(1.15);
 }
 
 .blog-detail__tags {
@@ -463,7 +568,7 @@ img {
 }
 
 .blog-detail__store-label {
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .blog-detail__store-info {
@@ -524,11 +629,11 @@ img {
 }
 
 .blog-comment__cancel-btn > .material-symbols-outlined {
-    font-size: 26px;
+    font-size: 1.625rem;
 }
 
 .blog-comment__submit-btn > .material-symbols-outlined {
-    font-size: 26px;
+    font-size: 1.625rem;
 }
 
 .blog-comment__box {
@@ -591,7 +696,7 @@ img {
 }
 
 .blog-comment__good-btn > .material-symbols-outlined {
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .blog-comment__reply-btn {
@@ -606,7 +711,7 @@ img {
 }
 
 .blog-comment__show-reply-btn > .material-symbols-outlined {
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .blog-comment__reply {
@@ -624,6 +729,228 @@ img {
 
 .blog-comment__reply-info > .material-symbols-outlined {
     font-size: 16px;
+}
+
+/* Post */
+.blog-post__form {
+    display: grid;
+    gap: 30px;
+}
+
+.blog-post__form-action {
+    display: flex;
+    gap: 10px;
+    justify-content: right;
+    margin-right: 10px;
+}
+
+.blog-post__save-btn {
+    padding: 10px 15px;
+    background-color: gray;
+    color: var(--color-white);
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+}
+
+.blog-post__submit-btn {
+    padding: 10px 15px;
+    background-color: var(--main-color);
+    color: var(--color-white);
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+}
+
+.blog-post__input-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 15px 15px;
+    align-items: center;
+}
+
+.blog-post__input-grid fieldset {
+    display: contents;
+}
+
+.blog-post__label {
+    text-align: right;
+    padding: 10px;
+}
+
+.blog-post__postalcode {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#postalcode {
+    width: 11ch;
+}
+
+#city {
+    width: 20ch;
+}
+
+.blog-post__search-address-btn {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+}
+
+.blog-post__prefecture {
+    width: 16ch;
+}
+
+.blog-post__map {
+    aspect-ratio: 16 / 9;
+}
+.blog-post__map > iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.blog-post__score {
+    display: flex;
+    gap: 10px;
+}
+
+.blog-post__score-label {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.35rem;
+}
+
+.blog-post__score-label > .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1;
+    margin-right: 3px;
+}
+
+.blog-post__score-value {
+    margin-right: 3px;
+}
+
+.blog-post__score-range {
+    flex: 1;
+}
+
+.blog-post__upload-area {
+    display: grid;
+    place-items: center;
+    max-width: 600px;
+    height: 300px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.blog-post__upload-area:hover {
+    border-color: var(--main-color);
+}
+
+.blog-post__upload-btn {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.blog-post__upload-thumbnail {
+    display: none;
+}
+
+.blog-post__upload-caption {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 2px dashed #bbb;
+}
+
+.blog-post__upload-icon > .material-symbols-outlined {
+    font-size: 5rem;
+    color: gray;
+}
+
+.blog-post__upload-hint {
+    color: gray;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+.blog-post__upload-btn > img {
+    object-fit: cover;
+}
+
+.blog-post__body {
+    border-radius: 7px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.blog-post__tab {
+    display: flex;
+    background-color: #ddd;
+    margin-left: -1px;
+    margin-top: -1px;
+}
+
+.blog-post__tab-nav {
+    display: flex;
+}
+
+.blog-post__tab-btn--active {
+    background-color: var(--color-bg);
+    border-radius: 7px 7px 0 0;
+}
+
+.blog-post__tab-btn {
+    padding: 20px;
+}
+
+.blog-post__md {
+    margin: 10px;
+}
+
+.blog-post__input-md {
+    width: 100%;
+    min-height: 600px;
+    max-height: 800px;
+    overflow-y: auto;
+    resize: vertical;
+}
+
+.blog-post__tag {
+    display: flex;
+}
+
+#tag {
+    flex: 1;
+}
+
+.blog-post__add-tag-btn {
+    padding: 7px;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+}
+
+.blog-post__tag {
+    grid-column: 2;
+}
+
+.blog-post__tag-span {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.blog-post__del-tag-btn:hover {
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+.blog-post__del-tag-btn > .material-symbols-outlined {
+    font-size: 1.25rem;
 }
 
 /* --------------------------
@@ -649,7 +976,7 @@ img {
 
 .footer-list__title {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.125rem;
     margin-bottom: 20px;
 }
 
@@ -699,7 +1026,7 @@ img {
 .footer__copylight {
     margin-top: 10px;
     padding-top: 20px;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--footer-text-color);
     border-color: #444;
     border-top-width: 1px;
