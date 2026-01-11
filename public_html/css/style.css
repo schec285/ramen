@@ -3,8 +3,18 @@
     Common Styles
 -------------------------- */
 :root {
-    --main-color: #dc2626;
-    --footer-text-color: #9ca3af;
+    --main-color: oklch(.577 .245 27.325);
+    --footer-color: oklch(.21 .034 264.665);
+    --footer-text-color: oklch(.707 .022 261.325);
+    --color-black: #000;
+    --color-white: #fff;
+    --bg-gradient: linear-gradient(
+        135deg,
+        #ff0000,
+        #ff3300,
+        #ff5500,
+        #ff7700
+    );
 }
 
 body {
@@ -18,6 +28,15 @@ body {
     font-size: 16px;
 }
 
+img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* --------------------------
+    Layout Styles
+-------------------------- */
 .wrapper {
     overflow-x: hidden;
 }
@@ -34,12 +53,204 @@ body {
     padding: 0 30px;
 }
 
+.btn {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px;
+    background: var(--color-white);
+    border-radius: 10px;
+    border: #ddd;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+.icon {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.excellent-score {
+    /* 90点以上 */
+    background-color: oklch(.617 0.257 29.223);
+}
+
+.good-score {
+    /* 80点以上 */
+    background-color: oklch(.627 .194 149.214);
+}
+
+.medium-score {
+    /* 70点以上 */
+    background-color: oklch(.546 .245 262.881);
+}
+
+.poor-score {
+    /* 70点未満 */
+    background-color: oklch(.446 .03 256.802);
+}
+
+.c-tag {
+    display: block;
+    max-width: 300px;
+    padding: 0.3rem 0.6rem;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    font-size: 12px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: #ddd;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --------------------------
+    Main Visual Styles
+-------------------------- */
+.mv {
+    background: var(--bg-gradient);
+    padding: 45px 0;
+}
+
+.mv__heading {
+    margin-bottom: 25px;
+    color: var(--color-white);
+    letter-spacing: 0.05em;
+}
+
+.mv__title {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.mv__subtitle {
+    margin-bottom: 15px;
+}
+/* --------------------------
+    Blog Styles
+-------------------------- */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.blog-grid__item {
+    display: grid;
+    padding-bottom: 20px;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+    row-gap: 0.7rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 2px 12px #bbb;
+    background: var(--color-white);
+    transition: all 0.3s;
+}
+
+.blog-grid__item:hover {
+    transform: translateY(4px);
+}
+
+.blog-grid__link {
+    display: contents;
+}
+
+.blog-grid__link > :not(:first-child) {
+    padding: 0 1.5rem;
+}
+
+.blog__btn {
+    text-align: center;
+}
+
+.blog-grid__img {
+    position: relative;
+    height: 300px;
+}
+
+.card-img {
+    object-fit: cover;
+}
+
+.star {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 100;
+}
+
+.blog-grid__label {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    display: flex;
+    padding:8px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--color-white);
+    align-items: center;
+}
+
+.blog-grid__profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 6px;
+}
+
+.blog-grid__icon {
+    width: 40px;
+    height: 40px;
+}
+
+.blog-grid__date {
+    display: flex;
+    margin-bottom: 1rem;
+    padding-left: 7px;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    color: #888;
+}
+
+.blog-grid__text {
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3em;
+    letter-spacing: 0.01em;
+    color: #444;
+}
+
+.blog-grid__tag-list {
+    display: flex;
+    margin-top: auto;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
 /* --------------------------
     Footer Styles
 -------------------------- */
 .footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--footer-color);
+    color: var(--color-white);
     padding: 20px 0;
     text-align: center;
 }
@@ -79,7 +290,7 @@ body {
 }
 
 .footer-list__tags-link:hover {
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 .footer-list__tags-link:before {
@@ -100,7 +311,7 @@ body {
 }
 
 .footer-list__follow-link:hover {
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 /* コピーライト部分のスタイル */
