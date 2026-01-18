@@ -70,6 +70,8 @@ img {
 }
 
 input[type="text"],
+input[type="email"],
+input[type="password"],
 textarea,
 select {
     outline-style: none;
@@ -951,6 +953,71 @@ input[type="range"] {
 
 .blog-post__del-tag-btn > .material-symbols-outlined {
     font-size: 1.25rem;
+}
+
+/* --------------------------
+    Login Styles
+-------------------------- */
+.login__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.login__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: var(--color-white);
+    max-width: 500px;
+    padding: 30px;
+    width: 100%;
+}
+
+.login-heading {
+    margin-bottom: 20px;
+}
+
+.login-heading__title {
+    font-size: 28px;
+}
+
+.login-form {
+    width: 100%;
+}
+
+.login-form__input {
+    width: 100%;
+}
+
+.login-form__items {
+    margin: 20px 0;
+}
+
+.login-form__title {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.login-link {
+    color: oklch(55% 0.18 260);
+    margin: 0 5px;
+}
+
+.login-form__link:hover {
+    opacity: 0.7;
+}
+
+.login-form__btn {
+    width: 100%;
+    background-color: var(--color-black);
+    padding: 10px;
+    color: var(--color-white);
+    font-weight: bold;
 }
 
 /* --------------------------
