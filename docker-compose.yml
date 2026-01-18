@@ -1,0 +1,29 @@
+services:
+  apache:
+    image: httpd:2.4
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+
+  php:
+    build: .
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - database
+
+  database:
+    image: mariadb:12.1.2-noble
+    volumes:
+      - dbdata:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ramen
+      MYSQL_USER: maria
+      MYSQL_PASSWORD: admin
+
+volumes:
+  dbdata:
