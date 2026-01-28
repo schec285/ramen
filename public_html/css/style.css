@@ -10,20 +10,20 @@
     --color-white: #fff;
     --color-bg: oklch(.988 0.001 271.152);
     --color-perfect-score : linear-gradient(
-        45deg,
-        oklch(0.75 0.25 0),
-        oklch(0.75 0.25 30),
-        oklch(0.75 0.25 60),
-        oklch(0.75 0.25 90),
-        oklch(0.75 0.25 120),
-        oklch(0.75 0.25 150),
-        oklch(0.75 0.25 180),
-        oklch(0.75 0.25 210),
-        oklch(0.75 0.25 240),
-        oklch(0.75 0.25 270),
-        oklch(0.75 0.25 300),
-        oklch(0.75 0.25 330),
-        oklch(0.75 0.25 360)
+        45deg
+        ,oklch(0.75 0.25 0)
+        ,oklch(0.75 0.25 30)
+        ,oklch(0.75 0.25 60)
+        ,oklch(0.75 0.25 90)
+        ,oklch(0.75 0.25 120)
+        ,oklch(0.75 0.25 150)
+        ,oklch(0.75 0.25 180)
+        ,oklch(0.75 0.25 210)
+        ,oklch(0.75 0.25 240)
+        ,oklch(0.75 0.25 270)
+        ,oklch(0.75 0.25 300)
+        ,oklch(0.75 0.25 330)
+        ,oklch(0.75 0.25 360)
     );
     --color-excellent-score: oklch(.617 0.257 29.223);
     --color-good-score: oklch(.546 .245 262.881);
@@ -31,11 +31,11 @@
     --color-fair-score: oklch(74.419% 0.18112 56.449);
     --color-poor-score: oklch(.446 .03 256.802);
     --bg-gradient: linear-gradient(
-        135deg,
-        #ff0000,
-        #ff3300,
-        #ff5500,
-        #ff7700
+        135deg
+        ,#ff0000
+        ,#ff3300
+        ,#ff5500
+        ,#ff7700
     );
 
     /* 入力フォームの標準デザイン */
@@ -52,13 +52,14 @@
 }
 
 body {
-    font-family: "ui-sans-serif",
-                 "system-ui",
-                 "sans-serif",
-                 "Apple Color Emoji",
-                 "Segoe UI Emoji",
-                 "Segoe UI Symbol",
-                 "Noto Color Emoji";
+    font-family: "ui-sans-serif"
+                 ,"system-ui"
+                 ,"sans-serif"
+                 ,"Apple Color Emoji"
+                 ,"Segoe UI Emoji"
+                 ,"Segoe UI Symbol"
+                 ,"Noto Color Emoji"
+                 ;
     font-size: 16px;
     background-color: var(--color-bg);
 }
@@ -69,11 +70,11 @@ img {
     display: block;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea,
-select {
+input[type="text"]
+,input[type="email"]
+,input[type="password"]
+,textarea
+,select {
     outline-style: none;
     background-color: var(--input-background-color);
     border-radius: var(--input-border-radius);
@@ -81,9 +82,9 @@ select {
     padding: 10px;
 }
 
-input[type="text"]:focus,
-textarea:focus,
-select:focus {
+input[type="text"]:focus
+,textarea:focus
+,select:focus {
     box-shadow: var(--input-box-shadow);
 }
 
@@ -482,9 +483,9 @@ input[type="range"] {
     transform: scale(0.8);
 }
 
-.blog-detail__picture:hover .blog-detail__zoom-icon,
-.blog-detail__picture:hover .blog-detail__zoom-icon::before,
-.blog-detail__picture:hover .blog-detail__zoom-icon .material-symbols-outlined {
+.blog-detail__picture:hover .blog-detail__zoom-icon
+,.blog-detail__picture:hover .blog-detail__zoom-icon::before
+,.blog-detail__picture:hover .blog-detail__zoom-icon .material-symbols-outlined {
     opacity: 1;
 }
 
@@ -535,15 +536,15 @@ input[type="range"] {
 
 .blog-detail__bookmark-btn[data-state="true"] > .material-symbols-outlined {
     transition:
-        font-variation-settings 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
+        font-variation-settings 0.25s ease
+        ,color 0.25s ease
+        ,transform 0.25s ease;
     color: oklch(.546 .245 262.881);
     transform: scale(1.15);
 }
 
-.blog-detail__bookmark-btn[data-state="true"] > .material-symbols-outlined,
-.blog-detail__favorite-btn[data-state="true"] > .material-symbols-outlined {
+.blog-detail__bookmark-btn[data-state="true"] > .material-symbols-outlined
+,.blog-detail__favorite-btn[data-state="true"] > .material-symbols-outlined {
     font-variation-settings:
         'FILL' 1;
 }
@@ -959,17 +960,13 @@ input[type="range"] {
     Login Styles
 -------------------------- */
 .login__body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
 }
 
 .login__box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: var(--color-white);
@@ -980,6 +977,7 @@ input[type="range"] {
 
 .login-heading {
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .login-heading__title {
@@ -1018,6 +1016,31 @@ input[type="range"] {
     padding: 10px;
     color: var(--color-white);
     font-weight: bold;
+}
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.login-divider::before
+,.login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.login-divider__text {
+    font-size: 0.8rem;
+    color: #666;
+    white-space: nowrap;
+}
+
+.login-register {
+    text-align: center;
 }
 
 /* --------------------------
