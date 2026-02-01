@@ -3,9 +3,9 @@
     Common Styles
 -------------------------- */
 :root {
-    --main-color: oklch(.577 .245 27.325);
-    --footer-color: oklch(.21 .034 264.665);
-    --footer-text-color: oklch(.707 .022 261.325);
+    --color-main: oklch(.577 .245 27.325);
+    --color-footer: oklch(.21 .034 264.665);
+    --color-footer-text: oklch(.707 .022 261.325);
     --color-black: #000;
     --color-white: #fff;
     --color-bg: oklch(.988 0.001 271.152);
@@ -62,6 +62,7 @@ body {
                  ;
     font-size: 16px;
     background-color: var(--color-bg);
+    padding-top: 70px;
 }
 
 img {
@@ -93,7 +94,7 @@ textarea {
 }
 
 input[type="range"] {
-    accent-color: var(--main-color);
+    accent-color: var(--color-main);
     --webkit-appearance: auto;
     appearance: auto;
 }
@@ -627,7 +628,7 @@ input[type="range"] {
 }
 
 .blog-comment__submit-btn {
-    color: var(--main-color);
+    color: var(--color-main);
     display: inline-flex;
 }
 
@@ -757,7 +758,7 @@ input[type="range"] {
 
 .blog-post__submit-btn {
     padding: 10px 15px;
-    background-color: var(--main-color);
+    background-color: var(--color-main);
     color: var(--color-white);
     font-weight: bold;
     letter-spacing: 0.05rem;
@@ -846,7 +847,7 @@ input[type="range"] {
 }
 
 .blog-post__upload-area:hover {
-    border-color: var(--main-color);
+    border-color: var(--color-main);
 }
 
 .blog-post__upload-btn {
@@ -1044,10 +1045,64 @@ input[type="range"] {
 }
 
 /* --------------------------
+    Header Styles
+-------------------------- */
+.header {
+    background-color: var(--color-white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.header__identity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header__logo {
+    width: 40px;
+    height: 40px;
+}
+
+.header__title {
+    color: var(--color-main);
+    font-size: 32px;
+    white-space: nowrap;
+}
+
+.header__nav-list {
+    display: flex;
+    gap: 15px;
+}
+
+.header__login-btn {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.header__register-btn {
+    border: 1px solid var(--color-main);
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: var(--color-main);
+    color: var(--color-white);
+}
+/* --------------------------
     Footer Styles
 -------------------------- */
 .footer {
-    background-color: var(--footer-color);
+    background-color: var(--color-footer);
     color: var(--color-white);
     padding: 20px 0;
     text-align: center;
@@ -1071,7 +1126,7 @@ input[type="range"] {
 }
 
 .footer-list__text {
-    color: var(--footer-text-color);
+    color: var(--color-footer-text);
 }
 
 /* タグエリアのスタイル */
@@ -1084,7 +1139,7 @@ input[type="range"] {
 }
 
 .footer-list__tags-link {
-    color: var(--footer-text-color);
+    color: var(--color-footer-text);
 }
 
 .footer-list__tags-link:hover {
@@ -1105,7 +1160,7 @@ input[type="range"] {
 }
 
 .footer-list__follow-link {
-    color: var(--footer-text-color);
+    color: var(--color-footer-text);
 }
 
 .footer-list__follow-link:hover {
@@ -1117,7 +1172,7 @@ input[type="range"] {
     margin-top: 10px;
     padding-top: 20px;
     font-size: 0.875rem;
-    color: var(--footer-text-color);
+    color: var(--color-footer-text);
     border-color: #444;
     border-top-width: 1px;
     border-top-style: solid;

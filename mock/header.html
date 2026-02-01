@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/destyle.min.css" rel="stylesheet" /> <!-- TODO: 共通化実装後は削除-->
+    <link href="css/style.css" rel="stylesheet"> <!-- TODO: 共通化実装後は削除-->
+    <link rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..400,0..1" />
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <a href="#" class="header__identity">
+                <img src="./img/steaming-bowl-svgrepo-com.svg" class="header__logo">
+                <h1 class="header__title">ラーメンブログ</h1>
+            </a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="./login.html" class="header__login-btn btn">ログイン</a> 
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__register-btn btn" onclick="showNotImplementedAlert()">新規登録</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+<script src="./js/common.js"></script>
+</html>
