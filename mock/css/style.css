@@ -1085,13 +1085,13 @@ input[type="range"] {
     gap: 15px;
 }
 
-.login-btn {
+.header__login-btn {
     border: 1px solid #ccc;
     padding: 10px 15px;
     font-weight: bold;
 }
 
-.register-btn {
+.header__register-btn {
     border: 1px solid var(--color-main);
     padding: 10px 15px;
     font-weight: bold;
