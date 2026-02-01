@@ -61,6 +61,7 @@ body {
                  "Noto Color Emoji";
     font-size: 16px;
     background-color: var(--color-bg);
+    padding-top: 70px;
 }
 
 img {
@@ -953,6 +954,60 @@ input[type="range"] {
     font-size: 1.25rem;
 }
 
+/* --------------------------
+    Header Styles
+-------------------------- */
+.header {
+    background-color: var(--color-white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.header__identity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header__logo {
+    width: 40px;
+    height: 40px;
+}
+
+.header__title {
+    color: var(--color-main);
+    font-size: 32px;
+    white-space: nowrap;
+}
+
+.header__nav-list {
+    display: flex;
+    gap: 15px;
+}
+
+.login-btn {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.register-btn {
+    border: 1px solid var(--color-main);
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: var(--color-main);
+    color: var(--color-white);
+}
 /* --------------------------
     Footer Styles
 -------------------------- */
