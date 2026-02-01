@@ -20,9 +20,10 @@
 
 1. クローンする
 1. 以下コマンドを実行
-
-```shell
-docker compose up -d
-docker compose exec php composer install
-docker compose exec php php artisan migrate
-```
+    ```shell
+    docker compose up -d
+    docker compose exec php composer install
+    docker compose exec php php artisan migrate
+    ```
+1. ブラウザにアクセス
+  `localhost:8080`
