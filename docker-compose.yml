@@ -15,7 +15,7 @@ services:
       - database
 
   database:
-    image: mariadb:12.1.2-noble
+    image: mariadb:10.5
     volumes:
       - dbdata:/var/lib/mysql
     restart: always
@@ -24,6 +24,9 @@ services:
       MYSQL_DATABASE: ramen
       MYSQL_USER: maria
       MYSQL_PASSWORD: admin
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
 
 volumes:
   dbdata:

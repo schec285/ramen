@@ -18,12 +18,21 @@
 
 ## 開発
 
+### 環境構築
+
 1. クローンする
 1. 以下コマンドを実行
+
     ```shell
-    docker compose up -d
+    docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
     docker compose exec php composer install
     docker compose exec php php artisan migrate
     ```
-1. ブラウザにアクセス
-  `localhost:8080`
+
+### アクセス
+
+- サイト
+  - `localhost:8080`
+- DB
+  - `localhost:3306`
+  - phpMyAdmin(`localhost:8081`)
