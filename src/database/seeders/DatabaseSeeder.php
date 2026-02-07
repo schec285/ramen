@@ -18,8 +18,12 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
+            'user_id' => 'test',
             'email' => 'test@example.com',
+        ]);
+
+        $this->call([
+            PrefecturesTableSeeder::class,
         ]);
     }
 }
