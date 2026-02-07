@@ -1,0 +1,15 @@
+services:
+  database:
+    ports:
+      - "3306:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: database
+      PMA_USER: maria
+      PMA_PASSWORD: admin
+      PMA_ARBITRARY: 0
+    depends_on:
+      - database
