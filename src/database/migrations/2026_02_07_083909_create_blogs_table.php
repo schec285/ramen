@@ -19,8 +19,10 @@ return new class extends Migration
 
         Schema::create('blogs', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->constrained()->onDelete('cascade')->comment('投稿者');
+            $table->foreignUuid('user_id')->constrained()->onDelete('cascade');
             $table->string('store_name')->comment('店舗名');
+            $table->string('ramen-name')->comment('ラーメン名');
+            $table->integer('price')->comment('価格');
             $table->string('postal_code', 7)->comment('郵便番号');
             $table->string('prefecture', 10)->comment('都道府県');
             $table->string('city', 50)->comment('市区町村');
