@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'user_id' => 'test',
             'email' => 'test@example.com',
+            'password' => 'test',
         ]);
 
         $this->call([
