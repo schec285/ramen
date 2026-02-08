@@ -27,7 +27,7 @@
                         <article class="blog-grid__item">
                             <a href="#" class="blog-grid__link">
                                 <figure class="blog-grid__img">
-                                    <img class="card-img" src="{{ Storage::url($blog->path) }}">
+                                    <img class="card-img" src="{{ asset('svg/steaming-bowl-svgrepo-com.svg') }}">
                                     <span class="blog-grid__score-label score-label {{ ($blog->score_theme)['bg'] }}">
                                         <span class="material-symbols-outlined star">star</span>
                                         <span class="blog-grid__score">{{ $blog->score }}</span>
@@ -36,7 +36,7 @@
                                 <div class="blog-grid__heading">
                                     <div class="blog-grid__profile">
                                         <div class="blog-grid__icon">
-                                            <img class="icon" src="{{ Storage::url($blog->user->icon_path) }}">
+                                            <img class="icon" src="{{ $blog->user->icon_url }}">
                                         </div>
                                         <span>{{ $blog->user->user_name }}</span>
                                     </div>
