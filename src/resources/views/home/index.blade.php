@@ -28,7 +28,7 @@
                             <a href="#" class="blog-grid__link">
                                 <figure class="blog-grid__img">
                                     <img class="card-img" src="{{ Storage::url($blog->path) }}">
-                                    <span class="blog-grid__score-label score-label {{ scoreClass($blog->score)['bg'] }}">
+                                    <span class="blog-grid__score-label score-label {{ ($blog->score_theme)['bg'] }}">
                                         <span class="material-symbols-outlined star">star</span>
                                         <span class="blog-grid__score">{{ $blog->score }}</span>
                                     </span>
