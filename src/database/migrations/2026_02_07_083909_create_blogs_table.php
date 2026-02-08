@@ -21,7 +21,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained()->onDelete('cascade');
             $table->string('store_name')->comment('店舗名');
-            $table->string('ramen-name')->comment('ラーメン名');
+            $table->string('ramen_name')->comment('ラーメン名');
             $table->integer('price')->comment('価格');
             $table->string('postal_code', 7)->comment('郵便番号');
             $table->string('prefecture', 10)->comment('都道府県');
