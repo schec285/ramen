@@ -18,8 +18,8 @@ return new class extends Migration
         });
 
         Schema::create('blogs', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade')->comment('投稿者');
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->constrained()->onDelete('cascade')->comment('投稿者');
             $table->string('store_name')->comment('店舗名');
             $table->string('postal_code', 7)->comment('郵便番号');
             $table->string('prefecture', 10)->comment('都道府県');
@@ -34,13 +34,13 @@ return new class extends Migration
         });
 
         Schema::create('tags', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('tags_name')->unique()->comment('タグ名');
         });
 
         Schema::create('blog_tag', function (Blueprint $table) {
-            $table->foreignId('blog_id')->constrained()->onDelete('cascade');
-            $table->foreignId('tag_id')->constrained()->onDelete('cascade');
+            $table->foreignUuid('blog_id')->constrained()->onDelete('cascade');
+            $table->foreignUuid('tag_id')->constrained()->onDelete('cascade');
             $table->primary(['blog_id', 'tag_id']);
         });
 
