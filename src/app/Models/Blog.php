@@ -34,4 +34,17 @@ class Blog extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    /// アクセサ定義
+    public function getFullAddressAttribute() {
+        return implode('', array_filter([
+            $this->prefecture,
+            $this->city,
+            $this->address,
+        ]));
+    }
 }

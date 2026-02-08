@@ -37,7 +37,7 @@ return new class extends Migration
 
         Schema::create('tags', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('tags_name')->unique()->comment('タグ名');
+            $table->string('name')->unique()->comment('タグ名');
         });
 
         Schema::create('blog_tag', function (Blueprint $table) {
