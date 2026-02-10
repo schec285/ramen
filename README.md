@@ -11,6 +11,14 @@
 
 ## 使用技術/ツール
 
+### PHP/Laravel開発支援ツール
+
+- [Laravel IDE Helper](https://github.com/barryvdh/laravel-ide-helper)
+- [larastan](https://github.com/nunomaduro/larastan)
+- [Laravel Pint](https://github.com/laravel/pint)
+
+### フロント
+
 - [Google Fonts](https://fonts.google.com/icons)
 - [リセットCSS](https://nicolas-cusan.github.io/destyle.css/)
 - [GitHub markdownCSS-light](https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown-light.css)
