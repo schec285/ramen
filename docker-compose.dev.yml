@@ -14,7 +14,7 @@ services:
     depends_on:
       - database
   node:
-    image: node:24
+    build: ./node
     ports:
       - "5173:5173"
     volumes:

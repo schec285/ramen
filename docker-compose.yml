@@ -8,7 +8,7 @@ services:
       - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
 
   php:
-    build: .
+    build: ./php
     volumes:
       - ./src:/var/www/html
     depends_on:
@@ -24,9 +24,7 @@ services:
       MYSQL_DATABASE: ramen
       MYSQL_USER: maria
       MYSQL_PASSWORD: admin
-    command:
-      --character-set-server=utf8mb4
-      --collation-server=utf8mb4_unicode_ci
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
 volumes:
   dbdata:
