@@ -20,8 +20,8 @@ class BlogFactory extends Factory
     {
         return [
             'id' => Str::uuid(),
-            'store_name' => fake()->company(),
-            'ramen_name' => fake()->word(),
+            'store_name' => 'fake店 ' . fake()->word(),
+            'ramen_name' => fake()->word() . 'ラーメン',
             'price' => fake()->numberBetween(700, 1500),
             'postal_code' => fake()->postcode(),
             'prefecture' => fake()->prefecture(),
