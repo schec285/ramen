@@ -7,6 +7,7 @@
 | ツール名 | バージョン |
 | :------: | :--------: |
 |   PHP    |   8.4.12   |
+| Laravel  |  12.50.0   |
 | MariaDB  |    10.5    |
 
 ## 使用技術/ツール
@@ -39,8 +40,10 @@
 
 ### アクセス
 
-- サイト
+- ブラウザ
   - `localhost:8080`
+  - phpMyAdmin(`localhost:8081`)
 - DB
   - `localhost:3306`
-  - phpMyAdmin(`localhost:8081`)
+- vite
+  - `localhost:5173`
