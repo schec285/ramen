@@ -34,8 +34,7 @@
 
     ```shell
     docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
-    docker compose exec php composer install
-    docker compose exec php php artisan migrate --seed
+    docker compose exec php php artisan migrate --seed # DB構築、--seedオプションでダミーデータ投入
     ```
 
 ### アクセス

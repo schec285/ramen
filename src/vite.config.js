@@ -13,10 +13,19 @@ export default defineConfig({
     server: {
         hmr: {
             host: 'localhost',
+            overlay: false,
         },
         watch: {
             usePolling: true,
-            ignored: ['**/storage/framework/views/**'],
+            interval: 5000,
+            binaryInterval: 10000,
+            ignored: [
+                '**/storage/framework/views/**',
+                '**/node_modules/**',
+                '**/dist/**',
+                '**/.git/**',
+                '**/vendor/**',
+            ],
         },
     },
 });
