@@ -3,6 +3,10 @@ import './bootstrap';
 import '../css/style.css';
 import '../css/github-markdown-light.css';
 
+import { loadMore } from './modules/loadMore';
+
+loadMore();
+
 document.addEventListener('click', (e) => {
     const el = e.target.closest('[data-action]');
     if (!el) return;

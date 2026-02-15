@@ -22,13 +22,13 @@
     <main class="content">
         <section id="blog" class="blog section">
             <div class="container">
-                <div class="blog-grid">
+                <div id="blog-list" class="blog-grid" data-last-page="{{ $blogs->lastPage() }}">
                     @include('home._blog_grid')
                 </div>
             </div>
         </section>
         <div class="blog__btn">
-            <button class="btn blog__more">もっと見る</button>
+            <button data-action="getBlog" data-url="{{ route('blogs.loadMore') }}" class="btn blog__more">もっと見る</button>
         </div>
     </main>
 @endsection
