@@ -112,7 +112,6 @@ input[type="range"] {
     text-align: center;
     background: var(--color-white);
     border-radius: 10px;
-    cursor: pointer;
 }
 
 .btn:hover {

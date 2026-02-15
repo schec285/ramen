@@ -10,7 +10,7 @@
                     <a href="./login.html" class="header__login-btn btn">ログイン</a> 
                 </li>
                 <li class="header__nav-item">
-                    <a class="header__register-btn btn" onclick="showNotImplementedAlert()">新規登録</a>
+                    <a href="#" data-action="notImplemented" class="header__register-btn btn">新規登録</a>
                 </li>
             </ul>
         </nav>
