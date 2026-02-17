@@ -7,10 +7,10 @@
         <nav class="header__nav">
             <ul class="header__nav-list">
                 <li class="header__nav-item">
-                    <a href="./login.html" class="header__login-btn btn">ログイン</a> 
+                    <a href="#" class="header__login-btn btn" data-action="notImplemented">ログイン</a> 
                 </li>
                 <li class="header__nav-item">
-                    <a href="#" data-action="notImplemented" class="header__register-btn btn">新規登録</a>
+                    <a href="#" class="header__register-btn btn" data-action="notImplemented">新規登録</a>
                 </li>
             </ul>
         </nav>
