@@ -11,8 +11,21 @@ export default defineConfig({
         tailwindcss(),
     ],
     server: {
+        hmr: {
+            host: 'localhost',
+            overlay: false,
+        },
         watch: {
-            ignored: ['**/storage/framework/views/**'],
+            usePolling: true,
+            interval: 5000,
+            binaryInterval: 10000,
+            ignored: [
+                '**/storage/framework/views/**',
+                '**/node_modules/**',
+                '**/dist/**',
+                '**/.git/**',
+                '**/vendor/**',
+            ],
         },
     },
 });

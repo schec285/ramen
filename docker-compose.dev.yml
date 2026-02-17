@@ -13,3 +13,15 @@ services:
       PMA_ARBITRARY: 0
     depends_on:
       - database
+  node:
+    build: ./node
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./src:/var/www/html
+      - node_modules:/var/www/html/node_modules
+    working_dir: /var/www/html
+    command: sh -c "npm install && npm run dev -- --host"
+
+volumes:
+  node_modules:
