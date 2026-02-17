@@ -1,6 +1,6 @@
 <header class="header">
     <div class="header__inner">
-        <a href="#" class="header__identity">
+        <a href="{{ route('index') }}" class="header__identity">
             <img src="{{ asset('svg/steaming-bowl-svgrepo-com.svg') }}" class="header__logo">
             <h1 class="header__title">ラーメンブログ</h1>
         </a>
