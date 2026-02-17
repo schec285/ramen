@@ -29,6 +29,7 @@
         </section>
         <div class="blog__btn">
             <button data-action="getBlog" data-url="{{ route('blogs.loadMore') }}" class="btn blog__more">もっと見る</button>
+            <div id="loader" class="spinner hidden"></div>
         </div>
     </main>
 @endsection

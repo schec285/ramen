@@ -15,6 +15,9 @@ export function loadMore() {
         if (lastPage && currentPage >= lastPage) return;
 
         isLoading = true;
+        const loader = document.querySelector('#loader');
+        el.classList.add('hidden');
+        loader.classList.remove('hidden');
 
         try {
             const baseUrl = el.dataset.url;
@@ -40,6 +43,8 @@ export function loadMore() {
             console.error(error);
         } finally {
             isLoading = false;
+            loader.classList.add('hidden');    // 非表示
+            el.classList.remove('hidden');
         }
     });
 }
