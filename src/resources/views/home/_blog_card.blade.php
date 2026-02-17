@@ -1,5 +1,5 @@
 <article class="blog-grid__item">
-    <a href="#" class="blog-grid__link">
+    <a href="{{ route('blog', ['id' => $blog->id]) }}" class="blog-grid__link">
         <figure class="blog-grid__img">
             <img class="card-img" src="{{ asset('svg/steaming-bowl-svgrepo-com.svg') }}">
             <span class="blog-grid__score-label score-label {{ ($blog->score_theme)['bg'] }}">
