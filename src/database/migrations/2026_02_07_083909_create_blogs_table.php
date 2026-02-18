@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('address')->comment('住所');
             $table->decimal('latitude', 10, 7)->nullable()->comment('GoogleMaps-緯度');
             $table->decimal('longitude', 10, 7)->nullable()->comment('GoogleMaps-軽度');
-            $table->string('thumbnail_image_path')->comment('サムネイル画像パス');
+            $table->string('thumbnail_image_path')->nullable()->comment('サムネイル画像パス');
             $table->integer('score')->default(0)->comment('点数');
             $table->longText('body')->nullable()->comment('本文(markdown)');
             $table->timestamps();

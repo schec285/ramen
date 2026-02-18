@@ -10,4 +10,8 @@ class BlogService
             ->latest()
             ->paginate($perPage);
     }
+
+    public function getBlog(string $blogId) {
+        return Blog::with(['user', 'tags'])->findOrFail($blogId);
+    }
 }

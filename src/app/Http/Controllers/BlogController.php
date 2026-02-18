@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Services\BlogService;
-use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class BlogController extends Controller
 {
     private BlogService $blogservice;
     private const PER_PAGE = 6; // ブログ取得件数
@@ -16,15 +17,21 @@ class HomeController extends Controller
 
     public function index(){
         $blogs = $this->blogservice->getLatestBlogs(self::PER_PAGE);
-        return view('home.index', [
+        return view('blogs.index', [
             'blogs' => $blogs,
         ]);
     }
 
-    public function loadMore(Request $request){
+    public function loadMore(){
         $blogs = $this->blogservice->getLatestBlogs(self::PER_PAGE);
-        return view('home._blog_grid', [
+        return view('blogs._blog_grid', [
             'blogs' => $blogs,
         ])->render();
+    }
+
+    public function show(Blog $blog) {
+        return view('blogs.show', [
+            'blog' => $blog,
+        ]);
     }
 }

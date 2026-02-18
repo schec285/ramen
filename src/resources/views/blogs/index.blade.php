@@ -23,7 +23,7 @@
         <section id="blog" class="blog section">
             <div class="container">
                 <div id="blog-list" class="blog-grid" data-last-page="{{ $blogs->lastPage() }}">
-                    @include('home._blog_grid')
+                    @include('blogs._blog_grid')
                 </div>
             </div>
         </section>
