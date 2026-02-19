@@ -5,16 +5,28 @@
             <h1 class="header__title">ラーメンブログ</h1>
         </a>
         @unless(isset($hideHeaderNav) && $hideHeaderNav)
-            <nav class="header__nav">
-                <ul class="header__nav-list">
-                    <li class="header__nav-item">
-                        <a href="{{ route('auth.login') }}" class="header__login-btn btn">ログイン</a> 
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#" class="header__register-btn btn" data-action="notImplemented">新規登録</a>
-                    </li>
-                </ul>
-            </nav>
+            {{-- TODO: 仮実装 --}}
+            @if(session('is_logged_in'))
+                <nav class="header__nav">
+                    <ul class="header__nav-list">
+                        <form method="POST" action="{{ route('auth.logout') }}" class="header__nav-item">
+                            @csrf
+                            <button type="submit" class="header__nav-link btn">ログアウト</button>
+                        </form>
+                    </ul>
+                </nav>
+            @else
+                <nav class="header__nav">
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item">
+                            <a href="{{ route('auth.login') }}" class="header__login-btn btn">ログイン</a> 
+                        </li>
+                        <li class="header__nav-item">
+                            <a href="#" class="header__register-btn btn" data-action="notImplemented">新規登録</a>
+                        </li>
+                    </ul>
+                </nav>
+            @endif
         @endunless
     </div>
 </header>
