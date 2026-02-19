@@ -22,13 +22,13 @@
     <main class="content">
         <section id="blog" class="blog section">
             <div class="container">
-                <div id="blog-list" class="blog-grid" data-last-page="{{ $blogs->lastPage() }}">
+                <div id="blog-list" class="blog-grid">
                     @include('blogs._blog_grid')
                 </div>
             </div>
         </section>
         <div class="blog__btn">
-            <button data-action="getBlog" data-url="{{ route('blogs.loadMore') }}" class="btn blog__more">もっと見る</button>
+            <button class="btn blog__more" data-action="getBlog" data-url="{{ route('blogs.loadMore') }}" data-last-page="{{ $blogs->lastPage() }}">もっと見る</button>
             <div id="loader" class="spinner hidden"></div>
         </div>
     </main>
