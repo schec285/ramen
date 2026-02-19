@@ -9,9 +9,9 @@
             @if(session('is_logged_in'))
                 <nav class="header__nav">
                     <ul class="header__nav-list">
+                            <a href="{{ route('blogs.create') }}" class="header__create-btn btn">投稿</a>
                         <form method="POST" action="{{ route('auth.logout') }}" class="header__nav-item">
                             @csrf
-                            <a href="{{ route('blogs.create') }}" class="header__create-btn btn">投稿</a>
                             <button type="submit" class="header__nav-link btn">ログアウト</button>
                         </form>
                     </ul>
