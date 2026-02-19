@@ -3,7 +3,6 @@ export function loadMore() {
      * ブログ一覧を取得して表示する
      */
     let currentPage = 1;
-    let lastPage = 3;
     let isLoading = false;
 
     document.addEventListener('click', async (e) => {
@@ -12,6 +11,7 @@ export function loadMore() {
         if (!el) return;
 
         if (isLoading) return;
+        const lastPage = parseInt(el.dataset.lastPage);
         if (lastPage && currentPage >= lastPage) return;
 
         isLoading = true;

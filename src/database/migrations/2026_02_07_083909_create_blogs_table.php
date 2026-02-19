@@ -19,7 +19,7 @@ return new class extends Migration
 
         Schema::create('blogs', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->constrained()->onDelete('cascade');
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->string('store_name')->comment('店舗名');
             $table->string('ramen_name')->comment('ラーメン名');
             $table->integer('price')->comment('価格');
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('address')->comment('住所');
             $table->decimal('latitude', 10, 7)->nullable()->comment('GoogleMaps-緯度');
             $table->decimal('longitude', 10, 7)->nullable()->comment('GoogleMaps-軽度');
-            $table->string('thumbnail_image_path')->comment('サムネイル画像パス');
+            $table->string('thumbnail_image_path')->nullable()->comment('サムネイル画像パス');
             $table->integer('score')->default(0)->comment('点数');
             $table->longText('body')->nullable()->comment('本文(markdown)');
             $table->timestamps();
@@ -41,8 +41,8 @@ return new class extends Migration
         });
 
         Schema::create('blog_tag', function (Blueprint $table) {
-            $table->foreignUuid('blog_id')->constrained()->onDelete('cascade');
-            $table->foreignUuid('tag_id')->constrained()->onDelete('cascade');
+            $table->foreignUuid('blog_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('tag_id')->constrained()->cascadeOnDelete();
             $table->primary(['blog_id', 'tag_id']);
         });
 

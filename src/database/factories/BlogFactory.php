@@ -29,7 +29,7 @@ class BlogFactory extends Factory
             'address' => fake()->streetAddress(),
             'latitude' => fake()->latitude(),
             'longitude' => fake()->longitude(),
-            'thumbnail_image_path' => 'img/thumbnails/default.jpg',
+            'thumbnail_image_path' => null,
             'score' => fake()->numberBetween(0, 100),
             'body' => fake()->realText(),
         ];
