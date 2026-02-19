@@ -14,6 +14,8 @@
 
     @yield('content')
 
-    @include('partials.footer')
+    @unless(isset($hideFooter) && $hideFooter)
+        @include('partials.footer')
+    @endunless
 </body>
 </html>
