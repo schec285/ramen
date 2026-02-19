@@ -10,3 +10,5 @@ Route::get('/load-more', [BlogController::class, 'loadMore'])->name('blogs.loadM
 Route::get('/blog/{blog}', [BlogController::class, 'show'])->name('blogs.show'); // ブログ詳細画面
 
 Route::get('/auth/login', [LoginController::class, 'login'])->name('auth.login'); // ログイン画面
+Route::post('/auth/login', [LoginController::class, 'authenticate']); // ログイン処理
+Route::post('/auth/logout', [LoginController::class, 'logout'])->name('auth.logout'); // ログアウト処理
