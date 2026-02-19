@@ -11,6 +11,7 @@
                     <ul class="header__nav-list">
                         <form method="POST" action="{{ route('auth.logout') }}" class="header__nav-item">
                             @csrf
+                            <a href="{{ route('blogs.create') }}" class="header__create-btn btn">投稿</a>
                             <button type="submit" class="header__nav-link btn">ログアウト</button>
                         </form>
                     </ul>
