@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('prefectures', function (Blueprint $table) {
             $table->id();
-            $table->string('prefecture_name', 10)->unique()->comment('都道府県名');
+            $table->string('name', 10)->unique()->comment('都道府県名');
             $table->enum('region', ['北海道', '東北', '関東', '中部', '関西', '中国', '四国', '九州', '沖縄'])->comment('地域');
         });
 
