@@ -72,11 +72,11 @@
                     </div>
                     <div class="blog-post__input-grid">
                         <label class="blog-post__label" for="score">評価</label>
-                        <div class="blog-post__score">
-                            <input type="range" id="score" class="blog-post__score-range" min="0" max="100" value="50">
-                            <div class="blog-post__score-label">
+                        <div class="blog-post__score" data-component="score">
+                            <input type="range" class="blog-post__score-range" min="0" max="100" value="50" data-role="input">
+                            <div class="blog-post__score-label" data-role="label">
                                 <span class="material-symbols-outlined star">star</span>
-                                <span class="blog-post__score-value"></span>
+                                <span class="blog-post__score-value" data-role="value"></span>
                                 <span>点</span>
                             </div>
                         </div>
