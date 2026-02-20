@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Prefecture;
 use App\Services\BlogService;
 
 class BlogController extends Controller
@@ -36,6 +37,9 @@ class BlogController extends Controller
     }
 
     public function create() {
-        return view('blogs.create');
+        $prefectures = Prefecture::ordered()->pluck('name', 'id');
+        return view('blogs.create', [
+            'prefectures' => $prefectures,
+        ]);
     }
 }
