@@ -1,11 +1,13 @@
 import './bootstrap';
 
 import '../css/style.css';
-import '../css/github-markdown-light.css';
+import 'github-markdown-css/github-markdown-light.css';
 
 import { loadMore } from './modules/loadMore';
 import { initScoreComponent } from './features/blogs/score';
 import { initThumbnailUpload } from './features/blogs/thumbnailUpload';
+import './features/blogs/markdown';
+
 
 loadMore();
 initScoreComponent();

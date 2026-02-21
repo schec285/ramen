@@ -954,6 +954,13 @@ input[type="range"] {
     resize: vertical;
 }
 
+.blog-post__markdown-preview {
+    width: 100%;
+    min-height: 600px;
+    max-height: 800px;
+    padding: 10px 20px;
+}
+
 .blog-post__tag {
     display: flex;
 }
