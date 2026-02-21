@@ -13,6 +13,7 @@
         <section id="blog-post" class="blog-post section">
             <div class="container">
                 <form class="blog-post__form">
+                    @csrf
                     <div class="blog-post__form-action blog-post__form-action--top">
                         <button type="button" class="blog-post__save-btn btn">一時保存</button>
                         <button class="blog-post__submit-btn btn">投稿</button>
