@@ -20,7 +20,7 @@ class Blog extends Model
         'ramen_name',
         'price',
         'postal_code',
-        'prefecture',
+        'prefecture_id',
         'city',
         'address',
         'latitude',

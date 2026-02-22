@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Blog\StoreBlogRequest;
 use App\Models\Blog;
 use App\Models\Prefecture;
 use App\Services\BlogService;
@@ -43,11 +44,11 @@ class BlogController extends Controller
         ]);
     }
 
-    public function store() {
-        $blogs = $this->blogservice->getLatestBlogs(self::PER_PAGE);
-        return view('blogs.index', [
-            'page' => 'blog-show',
-            'blogs' => $blogs,
+    public function store(StoreBlogRequest $request) {
+        $data = $this->blogservice->createBlog($request->validated());
+
+        return redirect()->route('blogs.show', [
+            'blog' => $data
         ]);
     }
 }
