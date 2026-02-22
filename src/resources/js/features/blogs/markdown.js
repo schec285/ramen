@@ -25,11 +25,15 @@ export function initMarkdown() {
     writeTab?.addEventListener('click', () => {
         textarea.classList.remove('hidden');
         preview.classList.add('hidden');
+        writeTab.classList.add('blog-post__tab-btn--active');
+        previewTab.classList.remove('blog-post__tab-btn--active');
     });
 
     previewTab?.addEventListener('click', () => {
         renderPreview();
         textarea.classList.add('hidden');
         preview.classList.remove('hidden');
+        previewTab.classList.add('blog-post__tab-btn--active');
+        writeTab.classList.remove('blog-post__tab-btn--active');
     });
 }
