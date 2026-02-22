@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call([
+            PrefecturesTableSeeder::class,
+        ]);
 
         // 固定テストユーザ作成
         User::factory()->create([
@@ -38,8 +40,5 @@ class DatabaseSeeder extends Seeder
             )
             ->create();
 
-        $this->call([
-            PrefecturesTableSeeder::class,
-        ]);
     }
 }
