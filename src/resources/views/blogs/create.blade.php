@@ -68,7 +68,7 @@
                             </div>
                         </div>
                         <div class="blog-post__md">
-                            <textarea id="body" name="body" class="blog-post__input-md" placeholder="本文を入力"></textarea>
+                            <textarea id="body" name="body" class="blog-post__input-md" placeholder="本文を入力" spellcheck="false"></textarea>
                             <div id="md-preview" class="blog-post__markdown-preview hidden markdown-body"></div>
                         </div>
                     </div>
