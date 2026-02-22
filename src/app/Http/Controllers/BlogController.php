@@ -19,6 +19,7 @@ class BlogController extends Controller
     public function index(){
         $blogs = $this->blogservice->getLatestBlogs(self::PER_PAGE);
         return view('blogs.index', [
+            'page' => 'blog-index',
             'blogs' => $blogs,
         ]);
     }
@@ -32,6 +33,7 @@ class BlogController extends Controller
 
     public function show(Blog $blog) {
         return view('blogs.show', [
+            'page' => 'blog-show',
             'blog' => $blog,
         ]);
     }
@@ -39,6 +41,7 @@ class BlogController extends Controller
     public function create() {
         $prefectures = Prefecture::ordered()->pluck('name', 'id');
         return view('blogs.create', [
+            'page' => 'blog-create',
             'prefectures' => $prefectures,
         ]);
     }

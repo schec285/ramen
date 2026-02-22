@@ -1,4 +1,4 @@
-export function initScoreComponent() {
+export function initScore() {
     document.querySelectorAll('[data-component="score"]').forEach(component => {
         const input = component.querySelector('[data-role="input"]');
         const valueEl = component.querySelector('[data-role="value"]');

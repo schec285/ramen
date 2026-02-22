@@ -1,17 +1,21 @@
-import './bootstrap';
-
 import '../css/style.css';
 import 'github-markdown-css/github-markdown-light.css';
 
-import { loadMore } from './modules/loadMore';
-import { initScoreComponent } from './features/blogs/score';
-import { initThumbnailUpload } from './features/blogs/thumbnailUpload';
-import './features/blogs/markdown';
+const pageModules = {
+    'blog-index': () => import('./pages/blog/index'),
+    'blog-show': () => import('./pages/blog/show'),
+    'blog-create': () => import('./pages/blog/create'),
+};
 
+document.addEventListener('DOMContentLoaded', () => {
+    // ページごとの初期化
+    const page = document.body.dataset.page;
+    if (!pageModules[page]) return;
 
-loadMore();
-initScoreComponent();
-initThumbnailUpload();
+    pageModules[page]().then(module => {
+        module.init();
+    });
+});
 
 document.addEventListener('click', (e) => {
     const el = e.target.closest('[data-action]');
