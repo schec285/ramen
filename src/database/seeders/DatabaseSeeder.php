@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             ->count(3)
             ->has(
                 Blog::factory()
-                    ->count(20)
+                    ->count(10)
                     ->hasAttached(
                         Tag::factory()->count(rand(0,5))
                     )

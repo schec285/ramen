@@ -14,10 +14,6 @@
             <div class="container">
                 <form id="blog-post-form" method="POST" class="blog-post__form">
                     @csrf
-                    <div class="blog-post__form-action blog-post__form-action--top">
-                        <button type="button" class="blog-post__save-btn btn">一時保存</button>
-                        <button type="button" class="blog-post__submit-btn btn" data-action="submit">投稿</button>
-                    </div>
                     <div class="blog-post__input-grid">
                         <label class="blog-post__label" for="store-name">店舗名<span class="required">*</span></label>
                         <input type="text" id="store-name" class="blog-post__input-text" name="store-name" placeholder="店舗名を入力" required>
@@ -25,11 +21,12 @@
                             <legend class="visually-hidden">住所入力欄</legend>
                             <label class="blog-post__label" for="postalcode">郵便番号</label>
                             <div class="blog-post__postalcode">
-                                <input type="text" inputmode="numeric" id="postalcode" class="blog-post__input-text" name="postalcode" maxlength="7" pattern="\d*" autocomplete="shipping postal-code" placeholder="0000000">
+                                <input type="text" inputmode="numeric" id="postalcode" class="blog-post__input-text" name="postalcode" minlength="7" maxlength="7" pattern="\d*" autocomplete="shipping postal-code" placeholder="0000000">
                                 <button type="button" class="blog-post__search-address-btn btn">住所検索</button>
                             </div>
                             <label class="blog-post__label" for="prefecture">都道府県<span class="required">*</span></label>
                             <select id="prefecture" class="blog-post__prefecture" name="prefecture" required>
+                                    <option value="" disabled selected>選択してください</option>
                                 @foreach($prefectures as $id => $name)
                                     <option value="{{ $id }}">{{ $name }}</option>
                                 @endforeach
@@ -102,9 +99,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="blog-post__form-action blog-post__form-action--bottom">
-                        <button type="button" class="blog-post__save-btn btn">一時保存</button>
-                        <button type="button" class="blog-post__submit-btn btn">投稿</button>
+                    <div class="blog-post__form-action blog-post__form-action--top">
+                        <button type="button" class="blog-post__save-btn btn" data-action="not-implemented">一時保存</button>
+                        <button type="button" class="blog-post__submit-btn btn" data-action="submit">投稿</button>
                     </div>
                 </form>
             </div>

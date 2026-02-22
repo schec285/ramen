@@ -9,6 +9,7 @@ Route::get('/load-more', [BlogController::class, 'loadMore'])->name('blogs.loadM
 
 // TODO: ミドルウェアで認証確認
 Route::get('/blogs/create', [BlogController::class, 'create'])->name('blogs.create');//->middleware('auth'); // ブログ投稿画面
+Route::post('/blogs/create', [BlogController::class, 'store'])->name('blogs.store');//->middleware('auth'); // ブログ投稿処理
 Route::get('/blogs/{blog}', [BlogController::class, 'show'])->name('blogs.show'); // ブログ詳細画面
 
 Route::get('/auth/login', [LoginController::class, 'login'])->name('auth.login'); // ログイン画面
