@@ -12,7 +12,7 @@
     <main class="content">
         <section id="blog-post" class="blog-post section">
             <div class="container">
-                <form method="POST" class="blog-post__form">
+                <form id="blog-post-form" method="POST" class="blog-post__form">
                     @csrf
                     <div class="blog-post__form-action blog-post__form-action--top">
                         <button type="button" class="blog-post__save-btn btn">一時保存</button>

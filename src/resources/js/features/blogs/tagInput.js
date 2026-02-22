@@ -9,6 +9,13 @@ export function initTagInput() {
         tagInput.value = '';
     });
 
+    addTagBtn.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            addTagBtn.click();
+        }
+    });
+
     // タグ削除ボタンのイベントリスナーを設定
     document.querySelector('[data-component="tag-list"]').addEventListener('click', (e) => {
         const deleteBtn = e.target.closest('[data-action="delete-tag"]');
