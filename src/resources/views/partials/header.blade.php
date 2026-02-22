@@ -25,7 +25,7 @@
                             <a href="{{ route('auth.login') }}" class="header__login-btn btn">ログイン</a> 
                         </li>
                         <li class="header__nav-item">
-                            <a href="#" class="header__register-btn btn" data-action="notImplemented">新規登録</a>
+                            <a href="#" class="header__register-btn btn" data-action="not-implemented">新規登録</a>
                         </li>
                     </ul>
                 </nav>
