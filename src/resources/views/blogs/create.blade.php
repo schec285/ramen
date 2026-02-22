@@ -16,7 +16,7 @@
                     @csrf
                     <div class="blog-post__form-action blog-post__form-action--top">
                         <button type="button" class="blog-post__save-btn btn">一時保存</button>
-                        <button class="blog-post__submit-btn btn">投稿</button>
+                        <button type="button" class="blog-post__submit-btn btn" data-action="submit">投稿</button>
                     </div>
                     <div class="blog-post__input-grid">
                         <label class="blog-post__label" for="store-name">店舗名<span class="required">*</span></label>
@@ -103,8 +103,8 @@
                         </div>
                     </div>
                     <div class="blog-post__form-action blog-post__form-action--bottom">
-                        <button class="blog-post__save-btn btn">一時保存</button>
-                        <button class="blog-post__submit-btn btn">投稿</button>
+                        <button type="button" class="blog-post__save-btn btn">一時保存</button>
+                        <button type="button" class="blog-post__submit-btn btn">投稿</button>
                     </div>
                 </form>
             </div>
