@@ -23,7 +23,7 @@ document.addEventListener('click', (e) => {
 
     const action = el.dataset.action;
 
-    if (action === 'notImplemented') {
+    if (action === 'not-implemented') {
         e.preventDefault();
         alert("これはまだ実装してないんだ。ごめんね！");
     }
