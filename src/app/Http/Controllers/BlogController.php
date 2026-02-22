@@ -42,4 +42,12 @@ class BlogController extends Controller
             'prefectures' => $prefectures,
         ]);
     }
+
+    public function store() {
+        $blogs = $this->blogservice->getLatestBlogs(self::PER_PAGE);
+        return view('blogs.index', [
+            'page' => 'blog-show',
+            'blogs' => $blogs,
+        ]);
+    }
 }

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('ramen_name')->comment('ラーメン名');
             $table->integer('price')->comment('価格');
             $table->string('postal_code', 7)->comment('郵便番号');
-            $table->string('prefecture', 10)->comment('都道府県');
+            $table->foreignId('prefecture_id')->constrained('prefectures')->cascadeOnDelete()->comment('都道府県コード');
             $table->string('city', 50)->comment('市区町村');
             $table->string('address')->comment('住所');
             $table->decimal('latitude', 10, 7)->nullable()->comment('GoogleMaps-緯度');
