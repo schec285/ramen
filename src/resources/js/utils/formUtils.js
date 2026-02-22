@@ -7,3 +7,22 @@ export function preventEnterSubmit(formId) {
         }
     });
 }
+
+// 確認画面 + submit 制御
+export function setupSubmitWithPreview(formId, submitBtn, onPreview = null) {
+    const form = document.getElementById(formId);
+    document.querySelector(submitBtn).addEventListener('click', () => {
+        // ブラウザでバリデーションチェックを行って、問題がなければ onPreview を呼び出す
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+        if (onPreview != null) {
+            onPreview();
+        } else {
+            if (confirm('投稿しますか？')) {
+                form.submit();
+            }
+        }
+    });
+}
