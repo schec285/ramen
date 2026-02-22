@@ -965,7 +965,7 @@ input[type="range"] {
     display: flex;
 }
 
-#tag {
+#tag-input {
     flex: 1;
 }
 
@@ -975,7 +975,7 @@ input[type="range"] {
     margin-left: 10px;
 }
 
-.blog-post__tag {
+.blog-post__tag-area {
     grid-column: 2;
 }
 

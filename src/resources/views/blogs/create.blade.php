@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="blog-post__input-grid">
-                        <label class="blog-post__label" for="score">評価</label>
+                        <label class="blog-post__label">評価</label>
                         <div class="blog-post__score" data-component="score">
                             <input type="range" class="blog-post__score-range" min="0" max="100" name="score" value="50" data-role="input">
                             <div class="blog-post__score-label" data-role="label">
@@ -83,22 +83,22 @@
                             </div>
                         </div>
 
-                        <label class="blog-post__label" for="tag">タグ</label>
+                        <label class="blog-post__label" for="tag-input">タグ</label>
                         <div class="blog-post__tag">
-                            <input type="text" id="tag" class="blog-post__input-text" placeholder="タグを入力">
-                            <button type="button" class="blog-post__add-tag-btn btn" data-action="add-tag"><span class="material-symbols-outlined">add</span></button>
+                            <input type="text" id="tag-input" class="blog-post__input-text" placeholder="タグを入力">
+                            <button type="button" id="add-tag" class="blog-post__add-tag-btn btn"><span class="material-symbols-outlined">add</span></button>
                         </div>
-                        <div class="blog-post__tag">
+                        <div class="blog-post__tag-area">
                             <ul class="blog-post__tag-list tag-list">
-                                <li class="blog-post__tag-item">
-                                    <template id="tag-template">
+                                <template id="tag-template">
+                                    <li class="blog-post__tag-item" data-component="tag">
                                         <div class="blog-post__tag-span c-tag">
                                             <span></span>
-                                            <button type="button" class="blog-post__del-tag-btn"><span class="material-symbols-outlined">close_small</span></button>
+                                            <button type="button" class="blog-post__del-tag-btn" data-action="delete-tag"><span class="material-symbols-outlined">close_small</span></button>
                                             <input type="hidden" name="tags[]" value="">
                                         </div>
-                                    </template>
-                                </li>
+                                    </li>
+                                </template>
                             </ul>
                         </div>
                     </div>
