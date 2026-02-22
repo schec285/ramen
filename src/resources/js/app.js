@@ -1,18 +1,14 @@
 import '../css/style.css';
 import 'github-markdown-css/github-markdown-light.css';
 
-const pageModules = {
-    'blog-index': () => import('./pages/blog/index'),
-    'blog-show': () => import('./pages/blog/show'),
-    'blog-create': () => import('./pages/blog/create'),
-};
+import { PAGE_MODULES } from './constants/pageModules';
 
 document.addEventListener('DOMContentLoaded', () => {
     // ページごとの初期化
     const page = document.body.dataset.page;
-    if (!pageModules[page]) return;
+    if (!PAGE_MODULES[page]) return;
 
-    pageModules[page]().then(module => {
+    PAGE_MODULES[page]().then(module => {
         module.init();
     });
 });
