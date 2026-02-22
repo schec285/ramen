@@ -89,13 +89,13 @@
                             <button type="button" id="add-tag" class="blog-post__add-tag-btn btn"><span class="material-symbols-outlined">add</span></button>
                         </div>
                         <div class="blog-post__tag-area">
-                            <ul class="blog-post__tag-list tag-list">
+                            <ul class="blog-post__tag-list tag-list" data-component="tag-list">
                                 <template id="tag-template">
-                                    <li class="blog-post__tag-item" data-component="tag">
+                                    <li class="blog-post__tag-item" data-role="tag">
                                         <div class="blog-post__tag-span c-tag">
-                                            <span></span>
+                                            <span data-role="tag-value"></span>
                                             <button type="button" class="blog-post__del-tag-btn" data-action="delete-tag"><span class="material-symbols-outlined">close_small</span></button>
-                                            <input type="hidden" name="tags[]" value="">
+                                            <input type="hidden" data-role="tag-hidden-input"name="tags[]" value="">
                                         </div>
                                     </li>
                                 </template>
