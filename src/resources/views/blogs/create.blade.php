@@ -20,24 +20,24 @@
                     </div>
                     <div class="blog-post__input-grid">
                         <label class="blog-post__label" for="store-name">店舗名<span class="required">*</span></label>
-                        <input type="text" id="store-name" class="blog-post__input-text" placeholder="店舗名を入力" required>
+                        <input type="text" id="store-name" class="blog-post__input-text" name="store-name" placeholder="店舗名を入力" required>
                         <fieldset class="blog-post__address">
                             <legend class="visually-hidden">住所入力欄</legend>
                             <label class="blog-post__label" for="postalcode">郵便番号</label>
                             <div class="blog-post__postalcode">
-                                <input type="text" inputmode="numeric" id="postalcode" class="blog-post__input-text" minlength="7" maxlength="8" pattern="\d*" autocomplete="shipping postal-code" placeholder="000-0000">
+                                <input type="text" inputmode="numeric" id="postalcode" class="blog-post__input-text" name="postalcode" maxlength="7" pattern="\d*" autocomplete="shipping postal-code" placeholder="0000000">
                                 <button type="button" class="blog-post__search-address-btn btn">住所検索</button>
                             </div>
                             <label class="blog-post__label" for="prefecture">都道府県<span class="required">*</span></label>
-                            <select id="prefecture" class="blog-post__prefecture" required>
+                            <select id="prefecture" class="blog-post__prefecture" name="prefecture" required>
                                 @foreach($prefectures as $id => $name)
                                     <option value="{{ $id }}">{{ $name }}</option>
                                 @endforeach
                             </select>
                             <label class="blog-post__label" for="city">市町村</label>
-                            <input type="text" id="city" class="blog-post__input-text" placeholder="市町村を入力">
+                            <input type="text" id="city" class="blog-post__input-text" name="city" placeholder="市町村を入力">
                             <label class="blog-post__label" for="town">住所</label>
-                            <input type="text" id="town" class="blog-post__input-text" placeholder="住所を入力">
+                            <input type="text" id="town" class="blog-post__input-text" name="town" placeholder="住所を入力">
                         </fieldset>
                     </div>
 <!--
@@ -75,7 +75,7 @@
                     <div class="blog-post__input-grid">
                         <label class="blog-post__label" for="score">評価</label>
                         <div class="blog-post__score" data-component="score">
-                            <input type="range" class="blog-post__score-range" min="0" max="100" value="50" data-role="input">
+                            <input type="range" class="blog-post__score-range" min="0" max="100" name="score" value="50" data-role="input">
                             <div class="blog-post__score-label" data-role="label">
                                 <span class="material-symbols-outlined star">star</span>
                                 <span class="blog-post__score-value" data-role="value"></span>
@@ -86,15 +86,18 @@
                         <label class="blog-post__label" for="tag">タグ</label>
                         <div class="blog-post__tag">
                             <input type="text" id="tag" class="blog-post__input-text" placeholder="タグを入力">
-                            <button type="button" class="blog-post__add-tag-btn btn"><span class="material-symbols-outlined">add</span></button>
+                            <button type="button" class="blog-post__add-tag-btn btn" data-action="add-tag"><span class="material-symbols-outlined">add</span></button>
                         </div>
                         <div class="blog-post__tag">
                             <ul class="blog-post__tag-list tag-list">
                                 <li class="blog-post__tag-item">
-                                    <div class="blog-post__tag-span c-tag">
-                                        <span>テスト</span>
-                                        <button type="button" class="blog-post__del-tag-btn"><span class="material-symbols-outlined">close_small</span></button>
-                                    </div>
+                                    <template id="tag-template">
+                                        <div class="blog-post__tag-span c-tag">
+                                            <span></span>
+                                            <button type="button" class="blog-post__del-tag-btn"><span class="material-symbols-outlined">close_small</span></button>
+                                            <input type="hidden" name="tags[]" value="">
+                                        </div>
+                                    </template>
                                 </li>
                             </ul>
                         </div>
