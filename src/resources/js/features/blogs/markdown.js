@@ -22,18 +22,19 @@ export function initMarkdown() {
 
     textarea.addEventListener('input', renderPreview);
 
+    const tabActiveClassName = 'blog-post__tab-btn--active';
     writeTab?.addEventListener('click', () => {
         textarea.classList.remove('hidden');
         preview.classList.add('hidden');
-        writeTab.classList.add('blog-post__tab-btn--active');
-        previewTab.classList.remove('blog-post__tab-btn--active');
+        writeTab.classList.add(tabActiveClassName);
+        previewTab.classList.remove(tabActiveClassName);
     });
 
     previewTab?.addEventListener('click', () => {
         renderPreview();
         textarea.classList.add('hidden');
         preview.classList.remove('hidden');
-        previewTab.classList.add('blog-post__tab-btn--active');
-        writeTab.classList.remove('blog-post__tab-btn--active');
+        previewTab.classList.add(tabActiveClassName);
+        writeTab.classList.remove(tabActiveClassName);
     });
 }
