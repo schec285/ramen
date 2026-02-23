@@ -65,7 +65,7 @@ class PrefecturesTableSeeder extends Seeder
         ];
 
         $insertData = array_map(fn($p) => [
-            'prefecutre_name' => $p[0],
+            'name' => $p[0],
             'region' => $p[1],
         ], $prefectures);
 

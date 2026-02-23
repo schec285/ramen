@@ -20,7 +20,7 @@
                                 <input type="password" id="login-password" class="login-form__input">
                             </div>
                             <div class="login-form__items">
-                                <a href="#" class="login-link" data-action="notImplemented">パスワードを忘れた場合</a>
+                                <a href="#" class="login-link" data-action="not-implemented">パスワードを忘れた場合</a>
                             </div>
                             <div class="login-form__items">
                                 <button class="login-form__btn btn">ログイン</button>
@@ -30,11 +30,11 @@
                             <span class="login-divider__text">または</span>
                         </div>
                         <div class="login-register">
-                            <p>アカウントをお持ちでない場合は<a href="#" class="login-link" data-action="notImplemented">新規作成</a></p>
+                            <p>アカウントをお持ちでない場合は<a href="#" class="login-link" data-action="not-implemented">新規作成</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    @endsection
+@endsection
