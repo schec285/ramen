@@ -1,7 +1,12 @@
 services:
+  php:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
   database:
     ports:
       - "3306:3306"
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -13,6 +18,7 @@ services:
       PMA_ARBITRARY: 0
     depends_on:
       - database
+
   vite:
     image: node:24-slim
     ports:

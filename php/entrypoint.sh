@@ -15,6 +15,6 @@ if [ -z "$APP_KEY_VALUE" ]; then
   php artisan key:generate
 fi
 
-php artisan migrate --force
+php artisan migrate
 
 exec "$@"
