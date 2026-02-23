@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Prefecture;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -25,7 +24,7 @@ class BlogFactory extends Factory
             'ramen_name' => fake()->word() . 'ラーメン',
             'price' => fake()->numberBetween(700, 1500),
             'postal_code' => fake()->postcode(),
-            'prefecture_id' => Prefecture::inRandomOrder()->first()->id,
+            'prefecture' => fake()->prefecture(),
             'city' => fake()->city(),
             'address' => fake()->streetAddress(),
             'latitude' => fake()->latitude(),

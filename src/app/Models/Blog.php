@@ -20,7 +20,7 @@ class Blog extends Model
         'ramen_name',
         'price',
         'postal_code',
-        'prefecture_id',
+        'prefecture',
         'city',
         'address',
         'latitude',
@@ -36,12 +36,6 @@ class Blog extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    public function prefecture(): BelongsTo
-    {
-        return $this->belongsTo(Prefecture::class);
-    }
-    
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
@@ -50,7 +44,7 @@ class Blog extends Model
     /// アクセサ定義
     public function getFullAddressAttribute() {
         return implode('', array_filter([
-            $this->prefecture?->name,
+            $this->prefecture,
             $this->city,
             $this->address,
         ]));

@@ -9,13 +9,11 @@
     <link rel="icon" href="{{ asset('favicon.ico') }}">
     <link rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..400,0..1" />
 </head>
-<body data-page="{{ Route::currentRouteName() }}">
+<body>
     @include('partials.header')
 
     @yield('content')
 
-    @unless(isset($hideFooter) && $hideFooter)
-        @include('partials.footer')
-    @endunless
+    @include('partials.footer')
 </body>
 </html>

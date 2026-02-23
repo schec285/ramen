@@ -77,7 +77,6 @@ img {
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="number"],
 textarea,
 select {
     outline-style: none;
@@ -88,9 +87,6 @@ select {
 }
 
 input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="number"]:focus,
 textarea:focus,
 select:focus {
     box-shadow: var(--input-box-shadow);
@@ -819,18 +815,6 @@ input[type="range"] {
     gap: 10px;
 }
 
-#store-name {
-    width: 120ch;
-}
-
-#ramen-name {
-    width: 80ch;
-}
-
-#ramen-price {
-    width: 10ch;
-}
-
 #postalcode {
     width: 11ch;
 }
@@ -970,18 +954,11 @@ input[type="range"] {
     resize: vertical;
 }
 
-.blog-post__markdown-preview {
-    width: 100%;
-    min-height: 600px;
-    max-height: 800px;
-    padding: 10px 20px;
-}
-
 .blog-post__tag {
     display: flex;
 }
 
-#tag-input {
+#tag {
     flex: 1;
 }
 
@@ -991,7 +968,7 @@ input[type="range"] {
     margin-left: 10px;
 }
 
-.blog-post__tag-area {
+.blog-post__tag {
     grid-column: 2;
 }
 
