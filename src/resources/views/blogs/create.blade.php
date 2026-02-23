@@ -16,12 +16,16 @@
                     @csrf
                     <div class="blog-post__input-grid">
                         <label class="blog-post__label" for="store-name">店舗名<span class="required">*</span></label>
-                        <input type="text" id="store-name" class="blog-post__input-text" name="store-name" placeholder="店舗名を入力" required>
+                        <input type="text" id="store-name" class="blog-post__input" name="store-name" placeholder="店舗名を入力" required>
+                        <label class="blog-post__label" for="ramen-name">ラーメン名<span class="required">*</span></label>
+                        <input type="text" id="ramen-name" class="blog-post__input" name="ramen-name" placeholder="ラーメン名を入力" required>
+                        <label class="blog-post__label" for="ramen-price">価格<span class="required">*</span></label>
+                        <input type="number" id="ramen-price" class="blog-post__input" name="ramen-price" required>
                         <fieldset class="blog-post__address">
                             <legend class="visually-hidden">住所入力欄</legend>
                             <label class="blog-post__label" for="postalcode">郵便番号</label>
                             <div class="blog-post__postalcode">
-                                <input type="text" inputmode="numeric" id="postalcode" class="blog-post__input-text" name="postalcode" minlength="7" maxlength="7" pattern="\d*" autocomplete="shipping postal-code" placeholder="0000000">
+                                <input type="text" inputmode="numeric" id="postalcode" class="blog-post__input" name="postalcode" minlength="7" maxlength="7" pattern="\d*" autocomplete="shipping postal-code" placeholder="0000000">
                                 <button type="button" class="blog-post__search-address-btn btn">住所検索</button>
                             </div>
                             <label class="blog-post__label" for="prefecture">都道府県<span class="required">*</span></label>
@@ -32,9 +36,9 @@
                                 @endforeach
                             </select>
                             <label class="blog-post__label" for="city">市町村</label>
-                            <input type="text" id="city" class="blog-post__input-text" name="city" placeholder="市町村を入力">
+                            <input type="text" id="city" class="blog-post__input" name="city" placeholder="市町村を入力">
                             <label class="blog-post__label" for="town">住所</label>
-                            <input type="text" id="town" class="blog-post__input-text" name="town" placeholder="住所を入力">
+                            <input type="text" id="town" class="blog-post__input" name="town" placeholder="住所を入力">
                         </fieldset>
                     </div>
 <!--
@@ -82,7 +86,7 @@
 
                         <label class="blog-post__label" for="tag-input">タグ</label>
                         <div class="blog-post__tag">
-                            <input type="text" id="tag-input" class="blog-post__input-text" placeholder="タグを入力">
+                            <input type="text" id="tag-input" class="blog-post__input" placeholder="タグを入力">
                             <button type="button" id="add-tag" class="blog-post__add-tag-btn btn"><span class="material-symbols-outlined">add</span></button>
                         </div>
                         <div class="blog-post__tag-area">

@@ -77,6 +77,7 @@ img {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="number"],
 textarea,
 select {
     outline-style: none;
@@ -87,6 +88,9 @@ select {
 }
 
 input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
 textarea:focus,
 select:focus {
     box-shadow: var(--input-box-shadow);
@@ -813,6 +817,18 @@ input[type="range"] {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+#store-name {
+    width: 120ch;
+}
+
+#ramen-name {
+    width: 80ch;
+}
+
+#ramen-price {
+    width: 10ch;
 }
 
 #postalcode {
