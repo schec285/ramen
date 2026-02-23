@@ -6,7 +6,9 @@ RUN apt-get update && apt-get install -y \
     unzip \
     libzip-dev \
     libpng-dev \
-    libonig-dev
+    libonig-dev \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug
 
 # PHP拡張
 RUN docker-php-ext-install pdo_mysql mbstring zip exif
@@ -15,6 +17,9 @@ RUN docker-php-ext-install pdo_mysql mbstring zip exif
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
+
+# Xdebug設定
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # entrypoint
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh

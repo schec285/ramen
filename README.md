@@ -37,7 +37,7 @@
     docker compose exec php php artisan migrate --seed # DB構築、--seedオプションでダミーデータ投入
     ```
 
-### アクセス
+### 開発環境
 
 - ブラウザ
   - `localhost:8080`
@@ -46,3 +46,10 @@
   - `localhost:3306`
 - vite
   - `localhost:5173`
+- xdebug
+  - Port`9003`
+
+### デバッグ
+
+xdebugを使用してPHPのデバッグが可能。本設定ではポート`9003`で接続する設定なので、ポート`9003`で待ち受けする設定にしてください。
+VSCodeであれば`/.vscode/launch.example.json`をコピーして`launch.json`に変更してデバッグを起動してください。
