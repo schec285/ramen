@@ -15,7 +15,7 @@
                 <div class="blog__inner">
                     <article class="blog-detail__article">
                         <figure class="blog-detail__figure">
-                            <button class="blog-detail__picture" data-action="notImplemented">
+                            <button class="blog-detail__picture" data-action="not-implemented">
                                 <div class="blog-detail__score-box score-label {{ ($blog->score_theme)['bg'] }}">
                                     <span class="material-symbols-outlined star">star</span>
                                     <span class="blog-detail__score-label">{{ $blog->score }}点</span>

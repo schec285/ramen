@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call([
+            PrefecturesTableSeeder::class,
+        ]);
 
         // 固定テストユーザ作成
         User::factory()->create([
@@ -31,15 +33,12 @@ class DatabaseSeeder extends Seeder
             ->count(3)
             ->has(
                 Blog::factory()
-                    ->count(20)
+                    ->count(10)
                     ->hasAttached(
                         Tag::factory()->count(rand(0,5))
                     )
             )
             ->create();
 
-        $this->call([
-            PrefecturesTableSeeder::class,
-        ]);
     }
 }

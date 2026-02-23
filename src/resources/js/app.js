@@ -1,11 +1,17 @@
-import './bootstrap';
-
 import '../css/style.css';
-import '../css/github-markdown-light.css';
+import 'github-markdown-css/github-markdown-light.css';
 
-import { loadMore } from './modules/loadMore';
+import { PAGE_MODULES } from './constants/pageModules';
 
-loadMore();
+document.addEventListener('DOMContentLoaded', () => {
+    // ページごとの初期化
+    const page = document.body.dataset.page;
+    if (!PAGE_MODULES[page]) return;
+
+    PAGE_MODULES[page]().then(module => {
+        module.init();
+    });
+});
 
 document.addEventListener('click', (e) => {
     const el = e.target.closest('[data-action]');
@@ -13,7 +19,7 @@ document.addEventListener('click', (e) => {
 
     const action = el.dataset.action;
 
-    if (action === 'notImplemented') {
+    if (action === 'not-implemented') {
         e.preventDefault();
         alert("これはまだ実装してないんだ。ごめんね！");
     }
