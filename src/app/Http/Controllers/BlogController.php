@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Blog\StoreBlogRequest;
 use App\Models\Blog;
-use App\Models\Prefecture;
 use App\Services\BlogService;
 
 class BlogController extends Controller
@@ -34,21 +32,6 @@ class BlogController extends Controller
     public function show(Blog $blog) {
         return view('blogs.show', [
             'blog' => $blog,
-        ]);
-    }
-
-    public function create() {
-        $prefectures = Prefecture::ordered()->pluck('name', 'id');
-        return view('blogs.create', [
-            'prefectures' => $prefectures,
-        ]);
-    }
-
-    public function store(StoreBlogRequest $request) {
-        $data = $this->blogservice->createBlog($request->validated());
-
-        return redirect()->route('blogs.show', [
-            'blog' => $data
         ]);
     }
 }

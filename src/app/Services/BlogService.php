@@ -14,9 +14,4 @@ class BlogService
     public function getBlog(string $blogId) {
         return Blog::with(['user', 'tags'])->findOrFail($blogId);
     }
-
-    public function createBlog(array $data) {
-        $blog = Blog::create($data);
-        return $blog;
-    }
 }

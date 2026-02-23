@@ -14,11 +14,11 @@
                     <div class="footer-list__title">人気タグ</div>
                     <ul class="footer-list__tags">
                         {{-- TODO: モデルで取得(まだ実装するか微妙だけど) --}}
-                        <li class="footer-list__tags-item"><a href="#" class="footer-list__tags-link" data-action="not-implemented">醤油ラーメン</a></li>
-                        <li class="footer-list__tags-item"><a href="#" class="footer-list__tags-link" data-action="not-implemented">味噌ラーメン</a></li>
-                        <li class="footer-list__tags-item"><a href="#" class="footer-list__tags-link" data-action="not-implemented">豚骨ラーメン</a></li>
-                        <li class="footer-list__tags-item"><a href="#" class="footer-list__tags-link" data-action="not-implemented">塩ラーメン</a></li>
-                        <li class="footer-list__tags-item"><a href="#" class="footer-list__tags-link" data-action="not-implemented">つけ麺</a></li>
+                        <li class="footer-list__tags-item"><a href="#" class="footer-list__tags-link" data-action="notImplemented">醤油ラーメン</a></li>
+                        <li class="footer-list__tags-item"><a href="#" class="footer-list__tags-link" data-action="notImplemented">味噌ラーメン</a></li>
+                        <li class="footer-list__tags-item"><a href="#" class="footer-list__tags-link" data-action="notImplemented">豚骨ラーメン</a></li>
+                        <li class="footer-list__tags-item"><a href="#" class="footer-list__tags-link" data-action="notImplemented">塩ラーメン</a></li>
+                        <li class="footer-list__tags-item"><a href="#" class="footer-list__tags-link" data-action="notImplemented">つけ麺</a></li>
                     </ul>
                 </div>
             </div>

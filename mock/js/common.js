@@ -1,3 +1,3 @@
-function shownot-implementedAlert() {
+function showNotImplementedAlert() {
     alert("この機能はまだ実装されていません");
 }

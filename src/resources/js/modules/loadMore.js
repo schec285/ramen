@@ -7,7 +7,7 @@ export function loadMore() {
 
     document.addEventListener('click', async (e) => {
 
-        const el = e.target.closest('[data-action="get-blog"]');
+        const el = e.target.closest('[data-action="getBlog"]');
         if (!el) return;
 
         if (isLoading) return;

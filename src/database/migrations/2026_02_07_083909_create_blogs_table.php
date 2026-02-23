@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('prefectures', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 10)->unique()->comment('都道府県名');
+            $table->string('prefecutre_name', 10)->unique()->comment('都道府県名');
             $table->enum('region', ['北海道', '東北', '関東', '中部', '関西', '中国', '四国', '九州', '沖縄'])->comment('地域');
         });
 
         Schema::create('blogs', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
-            $table->string('store_name', 50)->comment('店舗名');
-            $table->string('ramen_name', 50)->comment('ラーメン名');
+            $table->string('store_name')->comment('店舗名');
+            $table->string('ramen_name')->comment('ラーメン名');
             $table->integer('price')->comment('価格');
             $table->string('postal_code', 7)->comment('郵便番号');
-            $table->foreignId('prefecture_id')->constrained('prefectures')->cascadeOnDelete()->comment('都道府県コード');
+            $table->string('prefecture', 10)->comment('都道府県');
             $table->string('city', 50)->comment('市区町村');
-            $table->string('address', 100)->comment('住所');
+            $table->string('address')->comment('住所');
             $table->decimal('latitude', 10, 7)->nullable()->comment('GoogleMaps-緯度');
             $table->decimal('longitude', 10, 7)->nullable()->comment('GoogleMaps-軽度');
             $table->string('thumbnail_image_path')->nullable()->comment('サムネイル画像パス');
