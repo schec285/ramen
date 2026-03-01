@@ -11,19 +11,29 @@
                     </div>
                     <form class="login-form" method="POST" action="{{ route('login') }}">
                         @csrf
+                        {{-- TODO: ログインエラー表示仮実装 --}}
+                        @if ($errors->any())
+                            <div style="color:red">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="login-from__items">
                             <label class="login-form__title" for="login-email">メールアドレス</label>
-                            <input type="email" id="login-email" class="login-form__input">
+                            <input type="email" id="login-email" class="login-form__input" name="email">
                         </div>
                         <div class="login-form__items">
                             <label class="login-form__title" for="login-password">パスワード</label>
-                            <input type="password" id="login-password" class="login-form__input">
+                            <input type="password" id="login-password" class="login-form__input" name="password">
                         </div>
                         <div class="login-form__items">
                             <a href="#" class="login-link" data-action="not-implemented">パスワードを忘れた場合</a>
                         </div>
                         <div class="login-form__items">
-                            <button class="login-form__btn btn">ログイン</button>
+                            <button type="submit" class="login-form__btn btn">ログイン</button>
                         </div>
                     </form>
                     <div class="login-divider">

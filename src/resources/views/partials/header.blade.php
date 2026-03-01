@@ -5,20 +5,20 @@
             <h1 class="header__title">ラーメンブログ</h1>
         </a>
         @unless(isset($hideHeaderNav) && $hideHeaderNav)
-            {{-- TODO: 仮実装 --}}
-            @if(session('is_logged_in'))
+            @auth
                 <nav class="header__nav">
                     <ul class="header__nav-list">
                         @if(!isset($hidePostBtn) || !$hidePostBtn)
                             <a href="{{ route('blogs.create') }}" class="header__create-btn btn">投稿</a>
                         @endif
-                        <form method="POST" action="{{ route('auth.logout') }}" class="header__nav-item">
+                        <form method="POST" action="{{ route('logout') }}" class="header__nav-item">
                             @csrf
                             <button type="submit" class="header__nav-link btn">ログアウト</button>
                         </form>
                     </ul>
                 </nav>
-            @else
+            @endauth
+            @guest
                 <nav class="header__nav">
                     <ul class="header__nav-list">
                         <li class="header__nav-item">
@@ -29,7 +29,7 @@
                         </li>
                     </ul>
                 </nav>
-            @endif
+            @endguest
         @endunless
     </div>
 </header>
