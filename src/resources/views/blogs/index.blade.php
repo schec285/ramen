@@ -27,9 +27,11 @@
                 </div>
             </div>
         </section>
+        @if ($blogs->isNotEmpty())
         <div class="blog__btn">
             <button class="btn blog__more" data-action="get-blog" data-url="{{ route('blogs.loadMore') }}" data-last-page="{{ $blogs->lastPage() }}">もっと見る</button>
             <div id="loader" class="spinner hidden"></div>
         </div>
+        @endif
     </main>
 @endsection
