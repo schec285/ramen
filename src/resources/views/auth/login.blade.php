@@ -11,16 +11,11 @@
                     </div>
                     <form class="login-form" method="POST" action="{{ route('login') }}">
                         @csrf
-                        {{-- TODO: ログインエラー表示仮実装 --}}
-                        @if ($errors->any())
-                            <div style="color:red">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                        @error('email')
+                        <div class="login-error">
+                            <p class="login-error__text">{{ $message }}</p>
+                        </div>
+                        @enderror
                         <div class="login-from__items">
                             <label class="login-form__title" for="login-email">メールアドレス</label>
                             <input type="email" id="login-email" class="login-form__input" name="email">
