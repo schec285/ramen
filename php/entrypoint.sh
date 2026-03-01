@@ -3,6 +3,12 @@ set -e
 
 cd /var/www/html
 
+# composer install（vendor が無い場合）
+if [ ! -f vendor/ ]; then
+  echo "Installing composer dependencies..."
+  composer install
+fi
+
 # .env が無ければ作成
 if [ ! -f .env ]; then
   cp .env.example .env

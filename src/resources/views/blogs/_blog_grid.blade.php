@@ -1,3 +1,5 @@
-@foreach ($blogs as $blog)
+@forelse ($blogs as $blog)
     @include('blogs._blog_card', ['blog' => $blog])
-@endforeach
+@empty
+    <p>投稿はまだありません。</p>
+@endforelse

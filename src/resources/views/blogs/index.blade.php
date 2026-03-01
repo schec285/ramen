@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-        <section id="mv" class="mv section">
+    <section id="mv" class="mv section">
         <div class="container">
             <div class="mv__inner">
                 <div class="mv__heading">
