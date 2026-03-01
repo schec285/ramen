@@ -1,3 +1,4 @@
+import 'github-markdown-css/github-markdown-light.css';
 import { preventEnterSubmit, setupSubmitWithPreview } from '../../utils/formUtils';
 import { initScore } from '../../features/blogs/scoreIndicator';
 import { initThumbnailUpload } from '../../features/blogs/thumbnailUpload';
