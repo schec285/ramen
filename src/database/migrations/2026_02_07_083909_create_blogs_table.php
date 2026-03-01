@@ -24,11 +24,11 @@ return new class extends Migration
             $table->string('ramen_name', 50)->comment('ラーメン名');
             $table->integer('price')->comment('価格');
             $table->string('postal_code', 7)->comment('郵便番号');
-            $table->foreignId('prefecture_id')->constrained('prefectures')->cascadeOnDelete()->comment('都道府県コード');
+            $table->foreignId('prefecture_id')->constrained('prefectures')->restrictOnDelete()->comment('都道府県コード');
             $table->string('city', 50)->comment('市区町村');
             $table->string('address', 100)->comment('住所');
             $table->decimal('latitude', 10, 7)->nullable()->comment('GoogleMaps-緯度');
-            $table->decimal('longitude', 10, 7)->nullable()->comment('GoogleMaps-軽度');
+            $table->decimal('longitude', 10, 7)->nullable()->comment('GoogleMaps-経度');
             $table->string('thumbnail_image_path')->nullable()->comment('サムネイル画像パス');
             $table->integer('score')->default(0)->comment('点数');
             $table->longText('body')->nullable()->comment('本文(markdown)');
@@ -69,6 +69,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('blog_tag');
+        Schema::dropIfExists('tags');
         Schema::dropIfExists('blogs');
+        Schema::dropIfExists('prefectures');
     }
 };
