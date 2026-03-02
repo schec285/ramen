@@ -254,6 +254,7 @@ return [
         'role'                     => 'ロール',
         'rule'                     => 'ルール',
         'rules'                    => 'ルール',
+        'score'                    => '評価',
         'second'                   => '秒',
         'sex'                      => '性別',
         'shipment'                 => '発送',
