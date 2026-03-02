@@ -304,6 +304,14 @@ input[type="range"] {
     margin-left: 3px;
 }
 
+.error {
+    margin: 15px 0;
+}
+
+.error__text {
+    color: red;
+}
+
 /* --------------------------
     Main Visual Styles
 -------------------------- */
@@ -1036,14 +1044,6 @@ input[type="range"] {
 
 .login-heading__title {
     font-size: 28px;
-}
-
-.login-error {
-    margin: 15px 0;
-}
-
-.login-error__text {
-    color: red;
 }
 
 .login-form {
