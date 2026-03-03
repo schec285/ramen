@@ -18,11 +18,11 @@
                         @enderror
                         <div class="login-from__items">
                             <label class="login-form__title" for="login-email">メールアドレス</label>
-                            <input type="email" id="login-email" class="login-form__input" name="email">
+                            <input type="email" id="login-email" class="login-form__input" name="email" value="{{ old('email') }}" required autofocus>
                         </div>
                         <div class="login-form__items">
                             <label class="login-form__title" for="login-password">パスワード</label>
-                            <input type="password" id="login-password" class="login-form__input" name="password">
+                            <input type="password" id="login-password" class="login-form__input" name="password" required>
                         </div>
                         <div class="login-form__items">
                             <a href="#" class="login-link" data-action="not-implemented">パスワードを忘れた場合</a>
