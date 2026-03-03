@@ -43,10 +43,7 @@ class BlogController extends Controller
 
     public function create()
     {
-        $prefectures = Prefecture::ordered()->pluck('name', 'id');
-        return view('blogs.create', [
-            'prefectures' => $prefectures,
-        ]);
+        return view('blogs.create');
     }
 
     public function store(StoreBlogRequest $request)
