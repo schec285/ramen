@@ -1,4 +1,4 @@
-@extends('layouts.app', ['hidePostBtn' => true])
+@extends('layouts.app', ['hidePostBtn' => true,])
 
 @section('content')
     <div class="page-actions">
