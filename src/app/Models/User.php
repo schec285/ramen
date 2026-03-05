@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
@@ -11,11 +12,8 @@ use Illuminate\Support\Facades\Storage;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasUuids;
 
-    // UUIDを主キーに設定
-    public $incrementing = false;
-    protected $keyType = 'string';
     /**
      * The attributes that are mass assignable.
      *
@@ -61,7 +59,8 @@ class User extends Authenticatable
     /**
      * アクセサ定義
      */
-    public function getIconUrlAttribute() {
+    public function getIconUrlAttribute()
+    {
         return $this->icon_path ? Storage::url($this->icon_path) : asset('svg/default_user_icon1.svg');
     }
 }
