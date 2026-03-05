@@ -25,7 +25,7 @@ function update({ input, valueEl, labelEl }) {
 
     labelEl.classList.remove(...Object.values(SCORE_COLOR_CLASSES));
 
-    if (value === 100) labelEl.classList.add(SCORE_COLOR_CLASSES.perfect);
+    if (value >= 100) labelEl.classList.add(SCORE_COLOR_CLASSES.perfect);
     else if (value >= 90) labelEl.classList.add(SCORE_COLOR_CLASSES.excellent);
     else if (value >= 80) labelEl.classList.add(SCORE_COLOR_CLASSES.good);
     else if (value >= 70) labelEl.classList.add(SCORE_COLOR_CLASSES.medium);
