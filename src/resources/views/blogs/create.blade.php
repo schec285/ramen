@@ -54,11 +54,12 @@
                         </fieldset>
 --}}
                     </div>
-{{--
+
                     <figure class="blog-post__map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4483700943483!2d139.79821637623232!3d35.715190028107024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ec3b2f4da23%3A0xbe7d4695cdc73e01!2z44KJ44O844KB44KT5byB5oW2IOa1heiNieacrOW6lw!5e0!3m2!1sja!2sjp!4v1767522502164!5m2!1sja!2sjp" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4483700943483!2d139.79821637623232!3d35.715190028107024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ec3b2f4da23%3A0xbe7d4695cdc73e01!2z44KJ44O844KB44KT5byB5oW2IOa1heiNieacrOW6lw!5e0!3m2!1sja!2sjp!4v1767522502164!5m2!1sja!2sjp" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
+                        <gmp-map center="-25.344,131.031" zoom="4" map-id="DEMO_MAP_ID"></gmp-map>
                     </figure>
---}}
+
                     <div class="blog-post__upload">
                         <div class="blog-post__upload-area">
                             <label class="blog-post__upload-btn btn" for="thumbnail">
