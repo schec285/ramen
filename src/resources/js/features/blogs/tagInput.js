@@ -1,4 +1,8 @@
-export function initTagInput() {
+export function initTag() {
+
+    // 旧入力値のタグを復元
+    restoreOldTag();
+
     // タグ追加ボタンのイベントリスナーを設定
     const addTagBtn = document.getElementById('add-tag');
     addTagBtn.addEventListener('click', () => {
@@ -7,13 +11,6 @@ export function initTagInput() {
         if (!tagInput || !tagValue) return;
         addTag(tagValue);
         tagInput.value = '';
-    });
-
-    addTagBtn.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            addTagBtn.click();
-        }
     });
 
     // タグ削除ボタンのイベントリスナーを設定
@@ -26,6 +23,28 @@ export function initTagInput() {
     });
 }
 
+/*
+ * 旧入力値のタグを復元する
+ * フォーム送信後にバリデーションエラーなどで再度フォームが表示された際に、ユーザーが入力したタグを復元するための関数 
+ */
+function restoreOldTag() {
+    const oldData = document.getElementById('old-data');
+    const oldTags = JSON.parse(oldData.dataset.tags || '[]');
+    const tagList = document.querySelector('[data-component="tag-list"]');
+    const template = document.getElementById('tag-template');
+
+    oldTags.forEach(tag => {
+        const clone = template.content.cloneNode(true);
+        clone.querySelector('[data-role="tag-value"]').textContent = tag;
+        clone.querySelector('[data-role="tag-hidden-input"]').value = tag;
+        tagList.appendChild(clone);
+    });
+}
+
+/*
+    * タグを追加する
+    * ユーザーがタグを入力して追加ボタンを押した際に、タグをタグリストに追加するための関数 
+*/
 function addTag(tagvalue) {
     const tagList = document.querySelector('[data-component="tag-list"]');
     const template = document.getElementById('tag-template');

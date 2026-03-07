@@ -1,4 +1,4 @@
-@extends('layouts.app', ['hidePostBtn' => true])
+@extends('layouts.app', ['hidePostBtn' => true,])
 
 @section('content')
     <div class="page-actions">
@@ -12,15 +12,27 @@
     <main class="content">
         <section id="blog-post" class="blog-post section">
             <div class="container">
-                <form id="blog-post-form" method="POST" class="blog-post__form">
+                <form id="blog-post-form" method="POST" class="blog-post__form" action="{{ route('blogs.store') }}" enctype="multipart/form-data">
                     @csrf
+                    <div id="old-data" data-tags='@json(old("tags", []))'></div>
+                    @if ($errors->any())
+                        <div class="error">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li class="error__text">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    
                     <div class="blog-post__input-grid">
-                        <label class="blog-post__label" for="store-name">店舗名<span class="required">*</span></label>
-                        <input type="text" id="store-name" class="blog-post__input" name="store-name" placeholder="店舗名を入力" required>
-                        <label class="blog-post__label" for="ramen-name">ラーメン名<span class="required">*</span></label>
-                        <input type="text" id="ramen-name" class="blog-post__input" name="ramen-name" placeholder="ラーメン名を入力" required>
-                        <label class="blog-post__label" for="ramen-price">価格<span class="required">*</span></label>
-                        <input type="number" id="ramen-price" class="blog-post__input" name="ramen-price" required>
+                        <label class="blog-post__label @error('store_name') error__text @enderror" for="store-name">店舗名</label>
+                        <input type="text" id="store-name" class="blog-post__input" name="store_name" value="{{ old('store_name') }}" placeholder="店舗名を入力" required>
+                        <label class="blog-post__label @error('ramen_name') error__text @enderror" for="ramen-name">ラーメン名</label>
+                        <input type="text" id="ramen-name" class="blog-post__input" name="ramen_name" value="{{ old('ramen_name') }}" placeholder="ラーメン名を入力" required>
+                        <label class="blog-post__label @error('price') error__text @enderror" for="ramen-price">価格</label>
+                        <input type="number" id="ramen-price" class="blog-post__input" name="price" value="{{ old('price') }}" min="0" required>
+{{-- 
                         <fieldset class="blog-post__address">
                             <legend class="visually-hidden">住所入力欄</legend>
                             <label class="blog-post__label" for="postalcode">郵便番号</label>
@@ -35,17 +47,18 @@
                                     <option value="{{ $id }}">{{ $name }}</option>
                                 @endforeach
                             </select>
-                            <label class="blog-post__label" for="city">市町村</label>
+                            <label class="blog-post__label" for="city">市区町村</label>
                             <input type="text" id="city" class="blog-post__input" name="city" placeholder="市町村を入力">
                             <label class="blog-post__label" for="town">住所</label>
                             <input type="text" id="town" class="blog-post__input" name="town" placeholder="住所を入力">
                         </fieldset>
+--}}
                     </div>
-<!--
+{{--
                     <figure class="blog-post__map">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4483700943483!2d139.79821637623232!3d35.715190028107024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ec3b2f4da23%3A0xbe7d4695cdc73e01!2z44KJ44O844KB44KT5byB5oW2IOa1heiNieacrOW6lw!5e0!3m2!1sja!2sjp!4v1767522502164!5m2!1sja!2sjp" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </figure>
--->
+--}}
                     <div class="blog-post__upload">
                         <div class="blog-post__upload-area">
                             <label class="blog-post__upload-btn btn" for="thumbnail">
@@ -69,14 +82,14 @@
                             </div>
                         </div>
                         <div class="blog-post__md">
-                            <textarea id="body" name="body" class="blog-post__input-md" placeholder="本文を入力" spellcheck="false"></textarea>
+                            <textarea id="body" name="body" class="blog-post__input-md" placeholder="本文を入力" spellcheck="false">{{ old('body', '') }}</textarea>
                             <div id="md-preview" class="blog-post__markdown-preview hidden markdown-body"></div>
                         </div>
                     </div>
                     <div class="blog-post__input-grid">
-                        <label class="blog-post__label">評価</label>
+                        <label class="blog-post__label @error('score') error__text @enderror">評価</label>
                         <div class="blog-post__score" data-component="score">
-                            <input type="range" class="blog-post__score-range" min="0" max="100" name="score" value="50" data-role="input">
+                            <input type="range" class="blog-post__score-range" min="0" max="100" name="score" value="{{ old('score', 50) }}" data-role="input">
                             <div class="blog-post__score-label" data-role="label">
                                 <span class="material-symbols-outlined star">star</span>
                                 <span class="blog-post__score-value" data-role="value"></span>
@@ -84,7 +97,7 @@
                             </div>
                         </div>
 
-                        <label class="blog-post__label" for="tag-input">タグ</label>
+                        <label class="blog-post__label @error('tags') error__text @enderror" for="tag-input">タグ</label>
                         <div class="blog-post__tag">
                             <input type="text" id="tag-input" class="blog-post__input" placeholder="タグを入力">
                             <button type="button" id="add-tag" class="blog-post__add-tag-btn btn"><span class="material-symbols-outlined">add</span></button>
@@ -96,7 +109,7 @@
                                         <div class="blog-post__tag-span c-tag">
                                             <span data-role="tag-value"></span>
                                             <button type="button" class="blog-post__del-tag-btn" data-action="delete-tag"><span class="material-symbols-outlined">close_small</span></button>
-                                            <input type="hidden" data-role="tag-hidden-input"name="tags[]" value="">
+                                            <input type="hidden" data-role="tag-hidden-input" name="tags[]">
                                         </div>
                                     </li>
                                 </template>
