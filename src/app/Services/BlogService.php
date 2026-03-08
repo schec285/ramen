@@ -3,7 +3,9 @@
 namespace App\Services;
 
 use App\Models\Blog;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
+use \Illuminate\Support\Str;
 
 class BlogService
 {
@@ -21,6 +23,10 @@ class BlogService
 
     public function createBlog(array $data)
     {
+        // タグデータを一時保存して除外
+        $tagNames = $data['tags'] ?? [];
+        unset($data['tags']);
+
         // モック実装: ハードコーディングされたデータを追加
         $data = array_merge($data, [
             'user_id' => Auth::id(),                // ログインユーザーのID
@@ -33,6 +39,20 @@ class BlogService
         ]);
 
         $blog = Blog::create($data);
+
+        // タグを処理して紐づける
+        if (!empty($tagNames)) {
+            $tagIds = [];
+            foreach ($tagNames as $tagName) {
+                $tagName = trim($tagName);
+
+                $tag = Tag::firstOrCreate([
+                    'name' => $tagName,
+                ]);
+                $tagIds[] = $tag->id;
+            }
+            $blog->tags()->sync($tagIds);
+        }
         return $blog;
     }
 }

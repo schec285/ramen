@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-enable xdebug
 
 # PHP拡張
-RUN docker-php-ext-install pdo_mysql mbstring zip exif
+RUN docker-php-ext-install pdo_mysql mbstring zip exif bcmath
 
 # Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer

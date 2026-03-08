@@ -5,6 +5,8 @@ import { initScore } from '../../features/blogs/scoreIndicator';
 import { initThumbnailUpload } from '../../features/blogs/thumbnailUpload';
 import { initMarkdown } from '../../features/blogs/markdown';
 import { initTag } from '../../features/blogs/tagInput';
+import { initLoadGoogleMapsAPI } from '../../features/blogs/mapsJsAPI';
+
 
 export function init() {
     preventEnterSubmit('blog-post-form');
@@ -13,4 +15,5 @@ export function init() {
     initThumbnailUpload();
     initMarkdown();
     initTag();
+    initLoadGoogleMapsAPI();
 }
