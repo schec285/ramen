@@ -32,27 +32,6 @@
                         <input type="text" id="ramen-name" class="blog-post__input" name="ramen_name" value="{{ old('ramen_name') }}" placeholder="ラーメン名を入力" required>
                         <label class="blog-post__label @error('price') error__text @enderror" for="ramen-price">価格</label>
                         <input type="number" id="ramen-price" class="blog-post__input" name="price" value="{{ old('price') }}" min="0" required>
-{{-- 
-                        <fieldset class="blog-post__address">
-                            <legend class="visually-hidden">住所入力欄</legend>
-                            <label class="blog-post__label" for="postalcode">郵便番号</label>
-                            <div class="blog-post__postalcode">
-                                <input type="text" inputmode="numeric" id="postalcode" class="blog-post__input" name="postalcode" minlength="7" maxlength="7" pattern="\d*" autocomplete="shipping postal-code" placeholder="0000000">
-                                <button type="button" class="blog-post__search-address-btn btn">住所検索</button>
-                            </div>
-                            <label class="blog-post__label" for="prefecture">都道府県<span class="required">*</span></label>
-                            <select id="prefecture" class="blog-post__prefecture" name="prefecture" required>
-                                    <option value="" disabled selected>選択してください</option>
-                                @foreach($prefectures as $id => $name)
-                                    <option value="{{ $id }}">{{ $name }}</option>
-                                @endforeach
-                            </select>
-                            <label class="blog-post__label" for="city">市区町村</label>
-                            <input type="text" id="city" class="blog-post__input" name="city" placeholder="市町村を入力">
-                            <label class="blog-post__label" for="town">住所</label>
-                            <input type="text" id="town" class="blog-post__input" name="town" placeholder="住所を入力">
-                        </fieldset>
---}}
                     </div>
 
                     <figure class="blog-post__map">
@@ -61,8 +40,8 @@
                                 <gmp-place-autocomplete placeholder="場所を検索"></gmp-place-autocomplete>
                             </div>
                         </gmp-map>
-                        <input type="hidden" id="lat" name="lat">
-                        <input type="hidden" id="lng" name="lng">
+                        <input type="hidden" id="lat" name="latitude">
+                        <input type="hidden" id="lng" name="longitude">
                     </figure>
 
                     <div class="blog-post__upload">

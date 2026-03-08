@@ -34,8 +34,6 @@ class BlogService
             'prefecture_id' => 1,                  // 東京都のID
             'city' => '千代田区',                    // 仮市区町村（東京）
             'address' => '千代田1-1',                // 仮住所
-            'latitude' => 35.693565851452725,      // 仮座標（東京）
-            'longitude' => 139.74974193440832,     // 仮座標（東京）
         ]);
 
         $blog = Blog::create($data);
