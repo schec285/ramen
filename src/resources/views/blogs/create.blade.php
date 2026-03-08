@@ -35,7 +35,7 @@
                     </div>
 
                     <figure class="blog-post__map">
-                        <gmp-map center="35.681236,139.767125" zoom="12"map-id="DEMO_MAP_ID">
+                        <gmp-map center="35.681236,139.767125" zoom="12"map-id="e5f243a770ac4c2730388baf">
                             <div class="blog-post__place-autocomplete-card" slot="control-inline-start-block-start">
                                 <gmp-place-autocomplete placeholder="場所を検索"></gmp-place-autocomplete>
                             </div>
