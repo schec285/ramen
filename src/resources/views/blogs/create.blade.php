@@ -56,8 +56,10 @@
                     </div>
 
                     <figure class="blog-post__map">
-                        <gmp-place-autocomplete placeholder="場所を検索"></gmp-place-autocomplete>
                         <gmp-map center="35.681236,139.767125" zoom="12"map-id="DEMO_MAP_ID">
+                            <div class="blog-post__place-autocomplete-card" slot="control-inline-start-block-start">
+                                <gmp-place-autocomplete placeholder="場所を検索"></gmp-place-autocomplete>
+                            </div>
                         </gmp-map>
                         <input type="hidden" id="lat" name="lat">
                         <input type="hidden" id="lng" name="lng">

@@ -70,7 +70,7 @@ async function initMap() {
             innerMap.fitBounds(place.viewport);
         } else {
             innerMap.setCenter(place.location);
-            innerMap.setZoom(19);
+            innerMap.setZoom(18);
         }
         setPlace(place.location.lat(), place.location.lng());
         let content = document.createElement('div');
