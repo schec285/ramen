@@ -33,17 +33,22 @@
                         <label class="blog-post__label @error('price') error__text @enderror" for="ramen-price">価格</label>
                         <input type="number" id="ramen-price" class="blog-post__input" name="price" value="{{ old('price') }}" min="0" required>
                     </div>
-
                     <figure class="blog-post__map">
-                        <gmp-map center="35.681236,139.767125" zoom="12"map-id="e5f243a770ac4c2730388baf">
+                        <gmp-map center="35.681236,139.767125" zoom="12" map-id="e5f243a770ac4c2730388baf">
                             <div class="blog-post__place-autocomplete-card" slot="control-inline-start-block-start">
                                 <gmp-place-autocomplete placeholder="場所を検索"></gmp-place-autocomplete>
                             </div>
                         </gmp-map>
-                        <input type="hidden" id="lat" name="latitude">
-                        <input type="hidden" id="lng" name="longitude">
+                        <input type="hidden" id="lat" name="latitude" value="{{ old('latitude') }}">
+                        <input type="hidden" id="lng" name="longitude" value="{{ old('longitude') }}">
+                        <input type="hidden" id="place_id" name="place_id" value="{{ old('place_id') }}">
+                        <input type="hidden" id="country_iso" name="country_iso" value="{{ old('country_iso') }}">
+                        <input type="hidden" id="postal_code" name="postal_code" value="{{ old('postal_code') }}">
+                        <input type="hidden" id="prefecture" name="prefecture" value="{{ old('prefecture') }}">
+                        <input type="hidden" id="city" name="city" value="{{ old('city') }}">
+                        <input type="hidden" id="formatted_address" name="formatted_address" value="{{ old('formatted_address') }}">
+                        <input type="hidden" id="address" class="blog-post__input" name="address" value="{{ old('address') }}">
                     </figure>
-
                     <div class="blog-post__upload">
                         <div class="blog-post__upload-area">
                             <label class="blog-post__upload-btn btn" for="thumbnail">
@@ -55,7 +60,7 @@
                                     <span class="blog-post__upload-hint">クリックまたはドラッグ&ドロップ</span>
                                 </div>
                                 <img class="blog-post__preview-thumbnail" src="">
-                                <input type="file" id="thumbnail" class="blog-post__upload-thumbnail" accept="image/*">
+                                <input type="file" id="thumbnail" class="blog-post__upload-thumbnail" name="thumbnail" accept="image/*">
                             </label>
                         </div>
                     </div>

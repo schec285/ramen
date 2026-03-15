@@ -17,12 +17,16 @@ class Blog extends Model
         'store_name',
         'ramen_name',
         'price',
-        'postal_code',
-        'prefecture_id',
-        'city',
-        'address',
         'latitude',
         'longitude',
+        'place_id',
+        'postal_code',
+        'country_iso',
+        'prefecture',
+        'city',
+        'address',
+        'formatted_address',
+        'thumbnail_image_path',
         'score',
         'body',
     ];
@@ -46,14 +50,6 @@ class Blog extends Model
     }
 
     /// アクセサ定義
-    public function getFullAddressAttribute() {
-        return implode('', array_filter([
-            $this->prefecture?->name,
-            $this->city,
-            $this->address,
-        ]));
-    }
-
     public function getScoreThemeAttribute() {
         $map = [
             'perfect' => ['bg' => 'score--perfect-bg', 'text' => 'score--perfect-text'],

@@ -31,7 +31,7 @@
             </div>
             <div class="blog-grid__body-item blog-grid__location">
                 <span class="material-symbols-outlined">location_on</span>
-                <p>{{ $blog->full_address }}</p>
+                <p>{{ $blog->display_address }}</p>
             </div>
         </div>
         <ul class="blog-grid__tag-list tag-list">

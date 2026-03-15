@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Prefecture;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -19,17 +18,23 @@ class BlogFactory extends Factory
 
     public function definition(): array
     {
+        $prefecture = fake()->prefecture();
+        $city = fake()->city();
+        $address = fake()->streetAddress();
         return [
             'id' => Str::uuid(),
             'store_name' => 'fake店 ' . fake()->word(),
             'ramen_name' => fake()->word() . 'ラーメン',
             'price' => fake()->numberBetween(700, 1500),
-            'postal_code' => fake()->postcode(),
-            'prefecture_id' => Prefecture::inRandomOrder()->first()->id,
-            'city' => fake()->city(),
-            'address' => fake()->streetAddress(),
             'latitude' => fake()->latitude(),
             'longitude' => fake()->longitude(),
+            'place_id' => Str::random(20),
+            'country_iso' => 'JP',
+            'postal_code' => fake()->postcode(),
+            'prefecture' => $prefecture,
+            'city' => $city,
+            'address' => $address,
+            'formatted_address' => $address,
             'thumbnail_image_path' => null,
             'score' => fake()->numberBetween(0, 100),
             'body' => fake()->realText(),

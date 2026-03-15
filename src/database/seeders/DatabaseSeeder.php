@@ -17,10 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            PrefecturesTableSeeder::class,
-        ]);
-
         // 固定テストユーザ作成
         User::factory()->create([
             'user_id' => 'test',

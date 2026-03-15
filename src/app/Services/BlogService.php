@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Blog;
 use App\Models\Tag;
+use App\Models\Prefecture;
 use Illuminate\Support\Facades\Auth;
 use \Illuminate\Support\Str;
 
@@ -27,15 +28,7 @@ class BlogService
         $tagNames = $data['tags'] ?? [];
         unset($data['tags']);
 
-        // モック実装: ハードコーディングされたデータを追加
-        $data = array_merge($data, [
-            'user_id' => Auth::id(),                // ログインユーザーのID
-            'postal_code' => '1000001',              // 仮郵便番号（東京）
-            'prefecture_id' => 1,                  // 東京都のID
-            'city' => '千代田区',                    // 仮市区町村（東京）
-            'address' => '千代田1-1',                // 仮住所
-        ]);
-
+        $data['user_id'] = Auth::id();
         $blog = Blog::create($data);
 
         // タグを処理して紐づける
