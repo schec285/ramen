@@ -13,7 +13,6 @@ class Blog extends Model
     use HasFactory, HasUuids;
 
     protected $fillable = [
-        'user_id',
         'store_name',
         'ramen_name',
         'price',
@@ -26,7 +25,6 @@ class Blog extends Model
         'city',
         'address',
         'formatted_address',
-        'thumbnail_image_path',
         'score',
         'body',
     ];
@@ -49,7 +47,9 @@ class Blog extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    /// アクセサ定義
+    /***
+     * アクセサ定義
+     */
     public function getScoreThemeAttribute() {
         $map = [
             'perfect' => ['bg' => 'score--perfect-bg', 'text' => 'score--perfect-text'],

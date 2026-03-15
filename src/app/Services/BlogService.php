@@ -5,8 +5,6 @@ namespace App\Services;
 use App\Models\Blog;
 use App\Models\Tag;
 use App\Models\Prefecture;
-use Illuminate\Support\Facades\Auth;
-use \Illuminate\Support\Str;
 
 class BlogService
 {
@@ -22,14 +20,13 @@ class BlogService
         return Blog::with(['user', 'tags'])->findOrFail($blogId);
     }
 
-    public function createBlog(array $data)
+    public function createBlog(Blog $blog)
     {
         // タグデータを一時保存して除外
-        $tagNames = $data['tags'] ?? [];
-        unset($data['tags']);
+        $tagNames = $blog->tags ?? [];
+        unset($blog->tags);
 
-        $data['user_id'] = Auth::id();
-        $blog = Blog::create($data);
+        $blog->save();
 
         // タグを処理して紐づける
         if (!empty($tagNames)) {
