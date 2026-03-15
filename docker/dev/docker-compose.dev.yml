@@ -1,7 +1,10 @@
 services:
-  php:
+  app:
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    build:
+      args:
+        DEV_MODE: yes
 
   database:
     ports:
@@ -24,7 +27,7 @@ services:
     ports:
       - "5173:5173"
     volumes:
-      - ./src:/var/www/html
+      - ../src:/var/www/html
       - node_modules:/var/www/html/node_modules
     working_dir: /var/www/html
     command: sh -c "npm install && npm run dev -- --host"
