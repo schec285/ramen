@@ -70,8 +70,12 @@ init:
 	cp $(ENV_FILE) $(APP_DIR)/.env
 	$(DC) up -d --build
 	$(DC) exec app sh -c "if [ ! -d vendor ]; then composer install; fi"
+	sleep 3
 	$(DC) exec app php artisan key:generate
-	$(DC) exec app php artisan migrate --force
+	$(DC) exec app php artisan migrate --force --seed
+
+devseed:
+	$(DC) exec app php artisan db:seed --class=Database\\Seeders\\Dev\\TestSeeder
 
 # ヘルプ表示
 help:
@@ -82,11 +86,12 @@ help:
 	@echo "  make down           # コンテナ停止"
 	@echo "  make logs           # ログ確認"
 	@echo "  make migrate        # DBマイグレーション"
-	@echo "  make dbreset        # DBリセット + マイグレーション + シード"
+	@echo "  make dbreset        # DBリセット + マイグレーション"
 	@echo "  make build          # イメージビルド"
 	@echo "  make artisan CMD=...# コンテナ内で artisan 実行"
 	@echo "  make npm CMD=...    # コンテナ内で npm 実行"
 	@echo "  make init           # 初期処理 (環境変数コピー + ビルド + マイグレーション)"
+	@echo "  make devseed        # 開発用テストデータ投入"
 
 # ----------------------
 # 補助
