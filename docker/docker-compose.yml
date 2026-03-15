@@ -4,13 +4,13 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./src:/var/www/html
-      - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ../src:/var/www/html
+      - ../apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
 
-  php:
-    build: ./php
+  app:
+    build: ../php
     volumes:
-      - ./src:/var/www/html
+      - ../src:/var/www/html
       - vendor:/var/www/html/vendor
     depends_on:
       - database
