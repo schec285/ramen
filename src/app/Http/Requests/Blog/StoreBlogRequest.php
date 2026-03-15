@@ -11,7 +11,7 @@ class StoreBlogRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,15 +25,20 @@ class StoreBlogRequest extends FormRequest
             'store_name' => 'required|string|max:50',
             'ramen_name' => 'required|string|max:50',
             'price' => 'required|integer|min:0',
-            'postal_code' => 'required|string|max:7',
-            'prefecture_id' => 'required|integer|exists:prefectures,id',
-            'city' => 'required|string|max:50',
-            'address' => 'required|string|max:100',
-            'latitude' => 'numeric|between:-90,90',
-            'longitude' => 'numeric|between:-180,180',
+            'latitude' => 'required|numeric|between:-90,90',
+            'longitude' => 'required|numeric|between:-180,180',
+            'place_id' => 'nullable|string|max:255',
+            'country_iso' => 'nullable|string|size:2',
+            'postal_code' => 'nullable|string|max:7',
+            'prefecture' => 'nullable|string|max:100',
+            'city' => 'nullable|string|max:50',
+            'formatted_address' => 'nullable|string|max:255',
+            'address' => 'nullable|string|max:255',
             'thumbnail_image_path' => 'string|max:255',
             'score' => 'required|integer|between:0,100',
-            'body' => 'required|string',
+            'body' => 'nullable|string',
+            'tags' => 'nullable|array',
+            'tags.*' => 'string|max:50',
         ];
     }
 }

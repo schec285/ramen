@@ -5,26 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
-    use HasFactory;
-
-    // UUIDを主キーに設定
-    public $incrementing = false;
-    protected $keyType = 'string';
+    use HasFactory, HasUuids;
 
     protected $fillable = [
         'store_name',
         'ramen_name',
         'price',
-        'postal_code',
-        'prefecture_id',
-        'city',
-        'address',
         'latitude',
         'longitude',
+        'place_id',
+        'postal_code',
+        'country_iso',
+        'prefecture',
+        'city',
+        'address',
+        'formatted_address',
         'score',
         'body',
     ];
@@ -47,15 +47,9 @@ class Blog extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    /// アクセサ定義
-    public function getFullAddressAttribute() {
-        return implode('', array_filter([
-            $this->prefecture?->name,
-            $this->city,
-            $this->address,
-        ]));
-    }
-
+    /***
+     * アクセサ定義
+     */
     public function getScoreThemeAttribute() {
         $map = [
             'perfect' => ['bg' => 'score--perfect-bg', 'text' => 'score--perfect-text'],

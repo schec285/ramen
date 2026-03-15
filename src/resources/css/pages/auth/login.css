@@ -1,0 +1,86 @@
+/* --------------------------
+    Login Styles
+-------------------------- */
+.login__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.login__box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: var(--color-white);
+    max-width: 500px;
+    padding: 30px;
+    width: 100%;
+}
+
+.login-heading {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-heading__title {
+    font-size: 28px;
+}
+
+.login-form {
+    width: 100%;
+}
+
+.login-form__input {
+    width: 100%;
+}
+
+.login-form__items {
+    margin: 20px 0;
+}
+
+.login-form__title {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.login-link {
+    color: oklch(55% 0.18 260);
+    margin: 0 5px;
+}
+
+.login-form__link:hover {
+    opacity: 0.7;
+}
+
+.login-form__btn {
+    width: 100%;
+    background-color: var(--color-black);
+    padding: 10px;
+    color: var(--color-white);
+    font-weight: bold;
+}
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.login-divider__text {
+    font-size: 0.8rem;
+    color: #666;
+    white-space: nowrap;
+}
+
+.login-register {
+    text-align: center;
+}

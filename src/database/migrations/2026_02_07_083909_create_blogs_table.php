@@ -11,24 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prefectures', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 10)->unique()->comment('都道府県名');
-            $table->enum('region', ['北海道', '東北', '関東', '中部', '関西', '中国', '四国', '九州', '沖縄'])->comment('地域');
-        });
-
         Schema::create('blogs', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
             $table->string('store_name', 50)->comment('店舗名');
             $table->string('ramen_name', 50)->comment('ラーメン名');
             $table->integer('price')->comment('価格');
-            $table->string('postal_code', 7)->comment('郵便番号');
-            $table->foreignId('prefecture_id')->constrained('prefectures')->restrictOnDelete()->comment('都道府県コード');
-            $table->string('city', 50)->comment('市区町村');
-            $table->string('address', 100)->comment('住所');
-            $table->decimal('latitude', 10, 7)->nullable()->comment('GoogleMaps-緯度');
-            $table->decimal('longitude', 10, 7)->nullable()->comment('GoogleMaps-経度');
+            $table->decimal('latitude', 10, 7)->comment('GoogleMaps-緯度');
+            $table->decimal('longitude', 10, 7)->comment('GoogleMaps-経度');
+            $table->string('place_id', 255)->nullable()->comment('GoogleMaps-PlaceID');
+            $table->string('country_iso', 2)->nullable()->comment('ISO国コード');
+            $table->string('postal_code', 7)->nullable()->comment('郵便番号');
+            $table->string('prefecture', 100)->nullable()->comment('都道府県');
+            $table->string('city', 50)->nullable()->comment('市区町村');
+            $table->string('formatted_address', 255)->nullable()->comment('GoogleMaps-フォーマット住所');
+            $table->string('address', 255)->nullable()->comment('住所');
             $table->string('thumbnail_image_path')->nullable()->comment('サムネイル画像パス');
             $table->integer('score')->default(0)->comment('点数');
             $table->longText('body')->nullable()->comment('本文(markdown)');
@@ -44,11 +41,6 @@ return new class extends Migration
             $table->foreignUuid('blog_id')->constrained()->cascadeOnDelete();
             $table->foreignUuid('tag_id')->constrained()->cascadeOnDelete();
             $table->primary(['blog_id', 'tag_id']);
-        });
-
-        // テーブルコメントの追加
-        Schema::table('prefectures', function (Blueprint $table) {
-            $table->comment('都道府県');
         });
 
         Schema::table('blogs', function (Blueprint $table) {
@@ -72,6 +64,5 @@ return new class extends Migration
         Schema::dropIfExists('blog_tag');
         Schema::dropIfExists('tags');
         Schema::dropIfExists('blogs');
-        Schema::dropIfExists('prefectures');
     }
 };

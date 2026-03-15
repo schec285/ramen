@@ -12,8 +12,8 @@
                     <form class="login-form" method="POST" action="{{ route('login') }}">
                         @csrf
                         @error('email')
-                        <div class="login-error">
-                            <p class="login-error__text">{{ $message }}</p>
+                        <div class="error">
+                            <p class="error__text">{{ $message }}</p>
                         </div>
                         @enderror
                         <div class="login-from__items">
