@@ -4,11 +4,13 @@
 
 ## システム構成
 
-| ツール名 | バージョン |
-| :------: | :--------: |
-|   PHP    |   8.4.12   |
-| Laravel  |  12.50.0   |
-| MariaDB  |    10.5    |
+|      ツール名      | バージョン |
+| :----------------: | :--------: |
+|       apache       |    2.4     |
+|        PHP         |   8.4.12   |
+|      Laravel       |  12.50.0   |
+|      MariaDB       |    10.5    |
+| vite(開発環境のみ) |   7.0.7    |
 
 ## 使用技術/ツール
 
@@ -23,19 +25,30 @@
 - [Google Fonts](https://fonts.google.com/icons)
 - [リセットCSS](https://nicolas-cusan.github.io/destyle.css/)
 - [GitHub markdownCSS-light](https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown-light.css)
-- GoogleMap(Geocoding API / Maps Embed API(Place))
+- GoogleMap(Place API(New) / Maps Javascript API)
 
 ## 開発
 
-### 環境構築
+### 初回環境構築
 
-1. クローンする
-1. 以下コマンドを実行
-
+1. `git clone`でプロジェクトをクローンする
+1. makeコマンドで初期構築(`make`がない場合は要インストール)
     ```shell
-    docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
-    docker compose exec php php artisan migrate --seed # DB構築、--seedオプションでダミーデータ投入
+    make init
     ```
+
+### 開発について
+
+#### makeコマンド
+
+Makefileを用意してるので、開発におけるCLI関連は`make`コマンドである程度作業できます。
+詳しくは`make help`で確認するか、`Makefile`の内容を確認してください。
+
+#### テストデータについて
+
+`make devseed`でテストデータを投入できます。
+固定でログインユーザ情報`test@example.com`:`test`が作成されます。
+テストユーザは他にも用意されますが環境によって投入されるログイン情報は変わる為、必要に応じてDBで確認してください。パスワードは`test`固定となります。
 
 ### 開発環境
 
@@ -49,7 +62,7 @@
 - xdebug
   - Port`9003`
 
-### デバッグ
+#### デバッグ
 
 xdebugを使用してPHPのデバッグが可能。本設定ではポート`9003`で接続する設定なので、ポート`9003`で待ち受けする設定にしてください。
 VSCodeであれば`/.vscode/launch.example.json`をコピーして`launch.json`に変更してデバッグを起動してください。
